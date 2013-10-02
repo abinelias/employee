@@ -1,0 +1,80 @@
+<meta charset="utf-8" />
+<title>Employee</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+	$(function() {
+	$( "#tabs" ).tabs({ 
+	beforeLoad: function( event, ui ) {
+	ui.jqXHR.error(function() {
+	ui.panel.html(
+	"Couldn't load this tab. We'll try to fix this as soon as possible. " +
+	"If this wouldn't be a demo." );
+	});
+	}
+	});
+	});
+</script>
+
+<style>
+
+#tabs { 
+    padding: 0px; 
+    background: none; 
+    border-width: 0px; 
+} 
+#tabs .ui-tabs-nav { 
+    padding-left: 0px; 
+    background: transparent; 
+    border-width: 0px 0px 1px 0px; 
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    border-radius: 0px; 
+} 
+#tabs .ui-tabs-panel { 
+    border-width: 0px 1px 1px 1px; 
+}
+
+#tabs .ui-tabs-active {
+  background: #FFAD5C;
+}
+
+</style>
+
+<title>Employee</title>
+<div id="container" style="width:100%" class ="textfont">
+	<div id="header" style="height:50px;margin-left: 3%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+	<div id="menu" style="height:700px;width: 150px;float:left;">
+		<br>
+		<%= link_to "Dashboard", url_for({:controller => 'employee', :action => 'dashboard'}), {:class => "linkStyle"}   %><br><br>
+		<%= link_to "Find Jobs" , url_for({:controller => 'employee', :action => 'myJobFinder'}) , {:class => "linkStyle"} %> <br><br> 
+		<%= link_to "Portfolio" , url_for({:controller => 'employee', :action => 'portfolioNew'}), {:class => "linkStyle"} %><br><br>
+	</div>
+		
+	<table width="80%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+		<tr>
+			<td align ="right">Welcome <%= session[:name] %> <%= session[:lastname] %><%= link_to "Signout" , url_for({:controller => 'home', :action => 'signout'}), {:class => "signout"} %></td>
+		</tr>
+		<tr>
+			<td>
+				<div id="tabs">
+					<ul>
+						<li><a href="editMyProfile">Profile</a></li>												
+						<li><a href="#tabs-1">SkillS</a></li>
+						<li><a href="myWorkDashboard">Work Experience</a></li>
+						<li><a href="myEducationDashboard">Education</a></li>
+						<li><a href="myResumeDashboard">Resume</a></li>	
+					</ul>
+					<div id="tabs-1">
+						<%= render 'formMyPortfolio' %>
+					</div>
+				</div>
+			</td>
+		</tr>		
+	</table>			
+</div>
+	

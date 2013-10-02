@@ -1,0 +1,43 @@
+<div class = "textfont">	
+	<table width="100%">
+		
+		<tr>
+			<td>
+				<table align = "left">	
+					<% unless(@cntArray.nil?)%>
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" border="0" align ="center" width="100%">
+									<tr>
+										<td align="center" valign="middle">
+											<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<% @cntArray.each do |value| %>
+													<tr>
+														<td width ="300"><%= value['name'].to_s %></td>
+														<td><%= link_to 'Delete' %></td>
+													</tr>
+													<tr>
+														<td width ="300"><%= value['created_at'].to_s %></td>
+														<td><%= link_to 'make prefered' %></td>
+													</tr>
+													
+													<tr>
+														<td>&nbsp</td>
+													<tr>
+													<tr>
+														<td>&nbsp</td>
+													<tr>
+												<% end %>
+												
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					<% end %>	
+				</table>	
+			</td>
+		</tr>
+	</table>
+</div>

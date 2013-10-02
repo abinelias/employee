@@ -1,0 +1,66 @@
+<title>Employee</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function(){
+		$("button").click(function() {
+			
+				var skill 			 	 = 		document.getElementById('job');
+				var description		 	 = 		document.getElementById('company');
+				var date			 	 = 		document.getElementById('opdate');
+				var tilldate		 	 = 		document.getElementById('datepickers');
+
+
+				var skilllen 		 	 = 		skill.value.length;
+				var descriptionlen 	 	 = 		description.value.length;
+				var datelen 	 		 = 		date.value.length;
+				var tilldatelen 		 = 		tilldate.value.length;
+				
+				if (skilllen == 0 || descriptionlen == 0 || datelen == 0 || tilldatelen == 0)
+				{
+					alert("some field is empty");  
+					return false;
+				}
+				
+				else
+				{
+		
+					  var skills 		 	 = 		skill.value;
+					  var descriptions	 	 = 		description.value;
+					  var dates 	 		 = 		date.value;
+					  var tilldates 		 = 		tilldate.value;	
+					  $.ajax({ 
+							  type: 'GET', 
+							  url: '/jobseeker/myWorkPopup', 
+							  data: {'job' : skills, 'company':descriptions, 'from':dates, 'till':tilldates},
+							  success: function(data) 
+							    {
+									  opener.location.reload(true);
+									  self.close();
+								} 
+						    });				
+				}
+		});
+	});	
+</script>
+
+<div id="container" style="width:100%">
+	<title>Employee</title>
+	<div id="container" style="width:100%" class ="textfont">
+		<table width="70%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+			<tr>
+				<td><div class ="fontHeading " align = "center"><h1>Add Work History</h1></div></td>
+			</tr>
+			<tr>
+				&nbsp;
+			</tr>
+			<tr>
+				<td>
+					<%= form_tag() do  %>	
+						<%= render 'formMyWorkHistoryPopup' %>
+					<%end%>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>	

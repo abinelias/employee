@@ -1,0 +1,62 @@
+<title>Employee</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function(){
+		$("button").click(function() {
+			
+			var skill 			 	 = 		document.getElementById('certificate');
+			var description		 	 = 		document.getElementById('university');
+			var date			 	 = 		document.getElementById('opdate');
+			var field			 	 = 		document.getElementById('field');
+			var educationID			 = 		document.getElementById('educationID');
+
+
+			var skilllen 		 	 = 		skill.value.length;
+			var descriptionlen 	 	 = 		description.value.length;
+			var datelen 	 		 = 		date.value.length;
+			var fieldlen 	 		 = 		field.value.length;
+			
+			if (skilllen == 0 || descriptionlen == 0 || datelen == 0 || fieldlen == 0)
+			{
+				alert("some field is empty");  
+				return false;
+			}
+			
+			
+			else
+			{
+				  var skills 		 	 = 		skill.value;
+				  var descriptions	 	 = 		description.value;
+				  var dates 	 		 = 		date.value;
+				  var fields 	 		 = 		field.value;
+				  var educationIDS 		 = 		educationID.value;
+				  $.ajax({ 
+						  type: 'GET', 
+						  url: '/jobseeker/updateEducation', 
+						  data: {'degree' : skills, 'university':descriptions, 'date':dates, 'field':fields, 'educationID':educationIDS},
+						  success: function(data) 
+							{
+								  opener.location.reload(true);
+								  self.close();
+							} 
+						});				
+			}
+		});
+	});	
+</script>
+
+<table width="90%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+	
+	<tr>
+		<td><div class ="fontHeading " align = "center"><h1>Edit Education</h1></div></td>
+	</tr>
+
+	<tr>
+		<td>
+			<%= form_tag(:action => "updateEducation") do  %>	
+				<%= render 'formEditEducation' %>
+			<%end%>
+		</td>
+	</tr>
+</table>

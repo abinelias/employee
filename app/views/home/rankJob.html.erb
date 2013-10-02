@@ -1,0 +1,126 @@
+<title>Employer</title>
+<%= csrf_meta_tag %> 
+<link rel="stylesheet" type="text/css" href="/assets/javascripts/jquery.tagsinput.css" />
+<script type="text/javascript" src="/assets/javascripts//jquery.min.js"></script>
+<script type="text/javascript" src="/assets/javascripts/jquery.tagsinput.js"></script>
+
+<script>
+	function validatePrior(value)		  
+		{	
+			var jobID 		 	 = 		document.getElementById("jobID");
+			var jobIDVal 		 = 		jobID.value;
+			var reg = /^\d+$/;
+			var priority 		 = 		document.getElementById("prior_"+value);
+			var priorityVal		 = 		priority.value;
+			if(priorityVal.match(reg))
+			{
+				if(priorityVal >0 && priorityVal < 11)
+				{
+					$.ajax({ 
+							  type: 'GET', 
+							  url: '/home/skillRatingPriorityVal', 
+							  data: {'priorityVal' : priorityVal, 'skill' : value, 'jobID' : jobIDVal},
+							  success: function(data) 
+							  {
+							  } 
+						  });
+				}
+				else
+				{
+					alert("Priority entered not between 1 to 10");
+					return false;
+				}
+			} 
+			else
+			{
+				alert("Please enter an integer value");
+				return false;
+			} 
+		}
+</script>	
+
+<script>
+	function validateRank(value)		  
+		{	
+			var jobID 		 	 = 		document.getElementById("jobID");
+			var jobIDVal 		 = 		jobID.value;
+			var reg = /^\d+$/;
+			var rank 		 	 = 		document.getElementById("rank_"+value);
+			var rankVal 		 = 		rank.value;
+			if(rankVal.match(reg))
+			{
+				if(rankVal >0 && rankVal < 11)
+				{
+					$.ajax({ 
+							  type: 'GET', 
+							  url: '/home/skillRatingRankVal', 
+							  data: {'rankVal' : rankVal, 'skill' : value, 'jobID' : jobIDVal},
+							  success: function(data) 
+							  {
+							  } 
+						  });
+				}
+				else
+				{
+					alert("Rank entered not between 1 to 10");
+					return false;
+				}
+			} 
+			else
+			{
+				alert("Please enter an integer value");
+				return false;
+			} 
+		}
+</script>	
+<script type="text/javascript">
+	$(function() {
+
+		$('#tags_1').tagsInput();
+		// Uncomment this line to see the callback functions in action
+		//			$('input.tags').tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag,onChange: onChangeTag});		
+
+		// Uncomment this line to see an input with no interface for adding new tags.
+		//			$('input.tags').tagsInput({interactive:false});
+		});
+</script>
+
+<title>Employer</title>
+<div id="container" style="width:100%">
+	<div id="header" style="height:50px;margin-left: 3%;margin-top: 1.5%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+	<div id="menu" style="height:700px;width: 200px;float:left;">
+		<br>
+		<%= link_to "Dashboard" , url_for({:controller => 'home', :action => 'dashBoard'}), {:class => "linkStyle"} %><br><br>
+		<%= link_to "Users" , url_for({:controller => 'home', :action => 'companyUserList'}), {:class => "linkStyle"} %><br><br>
+		<%= link_to "Post Jobs" , url_for({:controller => 'home', :action => 'jobPostingNew'}), {:class => "linkStyle"} %><br><br>
+		<%= link_to "Search Candidates" , url_for({:controller => 'home', :action => 'candidateSearch'}), {:class => "linkStyle"} %><br><br>
+		
+	</div>
+	<table width="70%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+		<tr>
+			<td align ="right">Welcome <%= session[:empfirst] %> <%= session[:emplast] %><%= link_to "Signout" , url_for({:controller => 'home', :action => 'signout'}), {:class => "signout"} %></td>
+		</tr>
+
+				<tr>
+					<td><div class ="fontHeading " align = "center"><h1>Rank Job Skills</h1></div></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						<form name="tripleplay" action="rankJobDone" method="post">
+							<%= render 'formRankJob' %>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>	
+	</div>	
+</div>	

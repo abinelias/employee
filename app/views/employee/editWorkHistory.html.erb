@@ -1,0 +1,68 @@
+<title>Employee</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+<script>
+	$(document).ready(function(){
+		$("button").click(function() {
+			
+				var skill 			 	 = 		document.getElementById('job');
+				var description		 	 = 		document.getElementById('company');
+				var date			 	 = 		document.getElementById('opdate');
+				var tilldate		 	 = 		document.getElementById('datepickers');
+				var workHistoryID		 = 		document.getElementById('workHistoryID');
+
+
+
+				var skilllen 		 	 = 		skill.value.length;
+				var descriptionlen 	 	 = 		description.value.length;
+				var datelen 	 		 = 		date.value.length;
+				var tilldatelen 		 = 		tilldate.value.length;
+				
+				if (skilllen == 0 || descriptionlen == 0 || datelen == 0 || tilldatelen == 0)
+				{
+					alert("some field is empty");  
+					return false;
+				}
+				
+				else
+				{
+		
+					  var skills 		 	 = 		skill.value;
+					  var descriptions	 	 = 		description.value;
+					  var dates 	 		 = 		date.value;
+					  var tilldates 		 = 		tilldate.value;	
+					  var workHistoryIDs	 = 		workHistoryID.value;
+					  $.ajax({ 
+							  type: 'GET', 
+							  url: '/jobseeker/updateWorkHistory', 
+							  data: {'job' : skills, 'company':descriptions, 'from':dates, 'till':tilldates, 'workHistoryID':workHistoryIDs},
+							  success: function(data) 
+							    {
+									  opener.location.reload(true);
+									  self.close();
+								} 
+						    });				
+				}
+		});
+	});	
+</script>
+
+<div id="container" style="width:100%">
+<title>Employee</title>
+<div id="container" style="width:100%" class ="textfont">
+	<div id="header" style="height:50px;margin-left: 3%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+		<table width="70%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+			<tr>
+				<td><div class ="fontHeading " align = "center"><h1>Edit Work History</h1></div></td>
+			</tr>
+			
+			<tr>
+				<td>
+					<%= render 'formEditWorkHistory' %>
+				</td>
+			</tr>
+		</table>
+	</div>	
+</div>

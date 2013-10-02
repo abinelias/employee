@@ -1,0 +1,29 @@
+<title>Employee</title>
+<div id="container" style="width:100%" class ="textfont">
+	<div id="header" style="height:50px;margin-left: 3%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+	<div id="menu" style="height:700px;width: 150px;float:left;">
+		<br>
+		<%= link_to "Dashboard", url_for({:controller => 'employee', :action => 'dashboard'}), {:class => "linkStyle"}   %><br><br>
+		<%= link_to "Find Jobs" , url_for({:controller => 'employee', :action => 'myJobFinder'}) , {:class => "linkStyle"} %> <br><br> 
+		<%= link_to "Portfolio" , url_for({:controller => 'employee', :action => 'portfolioNew'}), {:class => "linkStyle"} %><br><br>
+	</div>
+		<table width="70%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+			<tr>
+				<td align ="right">Welcome <%= session[:name] %> <%= session[:lastname] %><%= link_to "Signout" , url_for({:controller => 'home', :action => 'signout'}), {:class => "signout"} %></td>
+			</tr>
+			<tr>
+				<td><div class ="fontHeading " align = "center"><h1>The job for you</h1></div></td>
+			</tr>
+		
+			<tr>
+				<td>
+					<%= form_tag(:action => "myJobAssessment") do  %>	
+						<%= render 'formMyJobAssessment' %>
+					<%end%>
+				</td>
+			</tr>
+		</table>
+	</div>	
+</div>

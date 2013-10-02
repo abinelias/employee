@@ -1,0 +1,15 @@
+<title>Employee</title>
+<table width="90%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+
+	<tr>
+		<td><p><div class = "textfont">Click on the <%= link_to "Add", {:controller => "employee", :action => "myWorkHistoryPopup"},  :onclick=>"window.open(this.href,'myEducationPopup', 'height=350,width=450,top=250,left=600' ); return false;" %> button to add your Educational Details</div></p></td>
+	</tr>
+	
+	<tr>
+		<td>
+			<%= form_tag(:action => "myWorkDashboard") do  %>	
+				<%= render 'formMyWorkHistory' %>
+			<%end%>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,28 @@
+<title>Employer</title>
+<div id="container" style="width:100%">
+	<div id="header" style="height:50px;margin-left: 3%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+		
+		<table width="70%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+
+			<tr>
+				<td><div class ="fontHeading " align = "center"><h1>Register your company</h1></div></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form_tag(:action => "companyRegistration") do  %>	
+						<%= render 'formCompanyRegister' %>
+					<%end%>
+				</td>
+			</tr>
+		</table>
+	</div>	
+</div>

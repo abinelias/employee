@@ -1,0 +1,62 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+
+
+<script>
+	$(document).ready(function(){
+		$("button").click(function() {
+			
+				var title 		 	 	 = 		document.getElementById('comments');				
+				var jobID			 	 = 		document.getElementById('jobID');
+				
+				var titlelen 			 = 		title.value.length;
+				
+				
+				if (titlelen == 0 )
+				{
+					alert("some field is empty");  
+					return false;
+				}
+				
+				else
+				{
+		
+					  var describe 		 	 = 		title.value;
+					  var jobIDVal 		 	 = 		jobID.value;
+					 
+					  $.ajax({ 
+							  type: 'GET', 
+							  url: '/jobseeker/addMyRating', 
+							  data: {'jobIDVal' : jobIDVal, 'describe':describe},
+							  success: function(data) 
+							    {
+									  alert("Successfully Applied For Job");	
+									  self.close();
+								} 
+						    });				
+				}
+		});
+	});	
+</script>
+
+
+<div class = "textfont">
+	<div style="text-align:center;">
+		<table>
+			<tr>
+				<input type = "hidden" name = "jobIDVal" id = "jobID" value = <%= @jobID %> >
+				<td>Rate Yourself</td>
+				<td><textarea name="desc" placeholder = "Tell us why you’re a perfect fit for this job (140 characters or less)" id="comments"  style="width: 307px; height: 100px;"></textarea></td>
+			<tr>	
+			<tr>
+				<td></td>
+				<td>
+					<button class="buttonStyle " type="button">Submit</button>
+					<%= submit_tag "Cancel", :onclick => "window.close()" , :class => 'buttonStyle' %>
+				 </td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+

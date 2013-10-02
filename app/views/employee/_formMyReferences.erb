@@ -1,0 +1,28 @@
+
+
+<div class = "textfont">
+	<div style="text-align:center;">
+		<table>
+			<tr>
+				<td>References*</td>
+				<td><input type="text" size="48" value="" name="certificate" id="certificate"></td>
+			<tr>
+			<tr>
+				<td>Description*</td>
+				<td><textarea name="description"  id="description"  style="width: 303px; height: 100px;"></textarea></td>
+			<tr>
+			<tr>
+				<td><input type="hidden" value="<%= $portify  %>" name="id" id="add"></td>
+			</tr>		
+			<tr>
+				<td></td>
+				<td>
+					<button class="buttonStyle" type="button">Add</button>
+					<%= submit_tag "Cancel", :onclick => "window.close()" , :class => "buttonStyle" %>
+				 </td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
