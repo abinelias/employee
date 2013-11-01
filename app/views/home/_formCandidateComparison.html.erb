@@ -29,8 +29,19 @@
 	<div style="text-align:center;">
 		<% unless(@candidateData.blank?)%>
 			<table align ="left" border ="0">
+<<<<<<< HEAD
 				
 				<tr bgcolor="#edf2f4">
+=======
+				<tr>
+					<td></td>
+					<td></td>
+					<% @candidateData.each do |value| %>
+						<td width="155"><input type="checkbox" name="invite" onchange="validate('<%= value['candidateID'].to_s %>')" value="<%= value['candidateID'].to_s %>" id="chk_<%= value['candidateID'].to_s %>">Connect with candidate</td>
+					<% end %>	
+				</tr>
+				<tr bgcolor="#4D94FF">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					<td align ="left" width="150">Required Skills</td>
 					<td align ="left" width="150">Employer Proficiency</td>
 					<% @candidateData.each do |value| %>
@@ -41,7 +52,15 @@
 				<% unless(@Req_skill.blank?)%>
 					<% @i=0 %>
 					<% while (@i<@countSkill) %>
+<<<<<<< HEAD
 						<tr>
+=======
+						<tr <% if (@i%2 == 0) %>
+								bgcolor="#E4EFFF"
+								 <% else %>   	   	
+										bgcolor="#A6CAFF"
+								 <% end %> >
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							<td align ="left"><%= @Req_skill[@i]["skillName"] %></td>
 							<td><%= @Req_skill[@i]["empprof"] %></td>
 							<% @j=@i %>
@@ -53,6 +72,7 @@
 						<%	@i=@i+1 %>
 					<% end %>	
 				<% end %>
+<<<<<<< HEAD
 				
 				<% unless(@Des_skill.blank?)%>
 					<% @i=0 %>
@@ -65,6 +85,20 @@
 					</tr>	
 					<% while (@i<@countDesSkill) %>
 						<tr>
+=======
+					
+				<% unless(@Des_skill.blank?)%>
+					<% @i=0 %>
+					<tr bgcolor="#4D94FF">
+						<td colspan="5" align ="left">Desired Skills</td>
+					</tr>	
+					<% while (@i<@countDesSkill) %>
+						<tr <% if (@i%2 == 0) %>
+								bgcolor="#E4EFFF"
+								 <% else %>   	   	
+										bgcolor="#A6CAFF"
+								 <% end %> >
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							<td align ="left"><%= @Des_skill[@i]["skillName"] %></td>
 							<td><%= @Des_skill[@i]["empprof"] %></td>
 							<% @j=@i %>
@@ -75,6 +109,7 @@
 						</tr>
 						<%	@i=@i+1 %>
 					<% end %>
+<<<<<<< HEAD
 				<% end %>
 				<tr>
 					<td></td>
@@ -83,6 +118,9 @@
 						<td width="155"><input type="checkbox" name="invite" onchange="validate('<%= value['candidateID'].to_s %>')" value="<%= value['candidateID'].to_s %>" id="chk_<%= value['candidateID'].to_s %>">Connect with candidate</td>
 					<% end %>	
 				</tr>		
+=======
+				<% end %>		
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				</tbody>
 			</table>
 		<% else %>

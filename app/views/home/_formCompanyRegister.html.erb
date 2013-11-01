@@ -83,11 +83,19 @@ function validateForm()
 							Industry
 						</td>
 						<td>
+<<<<<<< HEAD
 							<%= select_tag "sel_group", options_for_select(@compType) ,{:class => "downdownbox"}%>
 						</td>
 					<tr>
 					<tr>
 						<td>Sector</td> <td><select class ="downdownbox" name ="opt2">
+=======
+							<%= select_tag "sel_group", options_for_select(@compType)%>
+						</td>
+					<tr>
+					<tr>
+						<td>Sector</td> <td><select name ="opt2">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 											  <option value="private">Private</option>
 											  <option value="public">Public</option>
 											  </select> 
@@ -99,8 +107,12 @@ function validateForm()
 		 </tr>
 		 <tr>
 			<td>
+<<<<<<< HEAD
 				<input type="submit" name="add" value="Add" id="add"  onclick ="return validateForm()">
 				<input type="submit" name="cancel" value="Cancel" id="cancel" >
+=======
+				<input type="submit" name="add" value="Add" id="add" class="buttonStyle " onclick ="return validateForm()">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			 </td>
 		  </tr>
 	</table>

@@ -110,7 +110,11 @@
 		});
 	});	
 </script>
+<<<<<<< HEAD
 <div align ="left">
+=======
+<div class = "textfont">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	<div style="text-align:center;">
 		<div style="text-align:left;">
 			<table align ="center" class ="serifa" >
@@ -126,6 +130,7 @@
 					<td>Location:</td><td> <%= @companyCity %>, <%= @companyState %> <td>
 				</tr>
 				<tr>
+<<<<<<< HEAD
 					<td><% if(@display == "1") %><%= link_to "Add To Watched Jobs" , {:controller => "employee", :action => "watchedJobs", :jobID => @jobID  }%> <% else %> Add To Watched Jobs <% end %> | 
 					<% if(@display == "1") %><%= link_to "Apply For Job", {:controller => "employee", :action => "popupApplyJob", :jobID => @jobID  },  :onclick=>"window.open(this.href,'popupApplyJob', 'height=350,width=800,top=250,left=300' ); return false;" %><% else %> Apply For Job <% end %></td> 
 				</tr>	
@@ -133,13 +138,40 @@
 		</div>
 		<table width="100%" style="margin-left:1px;">	
 		
+=======
+					<td><%= link_to "Add To Watched Jobs" , {:controller => "employee", :action => "watchedJobs", :jobID => @jobID  }%> | </td>
+					<td><%= link_to "Apply For Job", {:controller => "employee", :action => "popupApplyJob", :jobID => @jobID  },  :onclick=>"window.open(this.href,'popupApplyJob', 'height=350,width=450,top=250,left=600' ); return false;" %></td> 
+				</tr>	
+			</table>
+		</div>
+		<table class ="serifa" width="90%" style="margin-left:100px;">	
+			<% unless(@prerequisiteArray.blank?)%>
+					<tr>
+						<td align ="left"> Employer Prerequisite</td>
+						<td>My Proficiency</td>
+						<td></td>
+						<td>Required Proficiency</td>
+					</tr>  
+					
+				<% @prerequisiteArray.each do |value| %>	
+					<tr>
+						<td align ="left" style="padding-left:20px;width:350px;" ><%= value['prequisite'].to_s  %></td>
+						<td style="width:200px;" ><div class="slider-range-min" style="color: #FF6600;"></div></td>
+					</tr>
+				</div>	
+				<% end %>
+			<% end %>		
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 			<% unless(@requiredArray.blank?)%>
 				<tr>
 					<td align ="left"> Required Skills</td>
+<<<<<<< HEAD
 					<td>My Proficiency</td>
 					<td></td>
 					<td>Required Proficiency</td>
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				</tr> 
 				<% @requiredArray.each do |value| %>  
 					<tr>
@@ -170,6 +202,7 @@
 					<% @cont = @cont + 1 %>
 				<% end %>
 			<% end %>	
+<<<<<<< HEAD
 			<% unless(@prerequisiteArray.blank?)%>
 					<tr>
 						<td align ="left"> Employer Prerequisite</td>
@@ -182,6 +215,8 @@
 					</tr>
 				<% end %>
 			<% end %>
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		</table>
 	</div>
 </div>

@@ -17,7 +17,11 @@
 				<td>
 					<div STYLE="margin-left: 10%">
 						<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+<<<<<<< HEAD
 							<tr bgcolor="#edf2f4">
+=======
+							<tr bgcolor="#4D94FF">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								<td width ="100">Category</td>
 								<td width ="100">Speciality</td>
 								<td width ="100">Skills</td>
@@ -25,7 +29,15 @@
 							</tr>
 							<% @skillDetails.each do |value| %>	
 								<% @count = @count + 1 %>
+<<<<<<< HEAD
 								<tr>
+=======
+								<tr <% if (@count%2 == 0) %>
+													   bgcolor="#E4EFFF"
+												 <% else %>   	   	
+														bgcolor="#A6CAFF"
+												 <% end %>	>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 									<td width ="100"><%= value['categoryName'].to_s %></td>
 									<td width ="100"><%= value['specialityName'].to_s %></td>
 									<td width ="100"><%= value['skillName'].to_s %></td>
@@ -51,7 +63,11 @@
 							<td>
 								<div STYLE="margin-left: 10%">
 									<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+<<<<<<< HEAD
 										<tr bgcolor="#edf2f4">
+=======
+										<tr bgcolor="#4D94FF">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 											<td width ="200">University</td>
 											<td width ="200">Degree</td>
 											<td width ="200">Field of study</td>
@@ -59,7 +75,15 @@
 										</tr>
 										<% @education.each do |value| %>	
 											<% @count = @count + 1 %>
+<<<<<<< HEAD
 											<tr>
+=======
+											<tr <% if (@count%2 == 0) %>
+																   bgcolor="#E4EFFF"
+															 <% else %>   	   	
+																	bgcolor="#A6CAFF"
+															 <% end %>	>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 												<td width ="100"><%= value['college'].to_s %></td>
 												<td width ="100"><%= value['degree'].to_s %></td>
 												<td width ="100"><%= value['field'].to_s %></td>
@@ -87,7 +111,11 @@
 							<td>
 								<div STYLE="margin-left: 10%">
 									<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+<<<<<<< HEAD
 										<tr bgcolor="#edf2f4">
+=======
+										<tr bgcolor="#4D94FF">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 											<td width ="200">Company</td>
 											<td width ="200">Position</td>
 											<td width ="200">From Date</td>
@@ -95,7 +123,15 @@
 										</tr>
 										<% @workHistory.each do |value| %>	
 											<% @count = @count + 1 %>
+<<<<<<< HEAD
 											<tr>
+=======
+											<tr <% if (@count%2 == 0) %>
+																   bgcolor="#E4EFFF"
+															 <% else %>   	   	
+																	bgcolor="#A6CAFF"
+															 <% end %>	>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 												<td width ="100"><%= value['company'].to_s %></td>
 												<td width ="100"><%= value['title'].to_s %></td>
 												<td width ="100"><%= value['fromdate'].to_s %></td>
@@ -114,7 +150,11 @@
 			<% unless(@jobseekerID.nil?)%>
 				<% @jobseekerID.each do |value| %>
 					<td>
+<<<<<<< HEAD
 						<%= link_to "Connect"  , url_for({:action => "jobSeekerContact", :controller => "home", :prospect => value['id'].to_s }), {:class => "link", :id => "post"} %>
+=======
+						<%= link_to "Connect"  , url_for({:action => "jobSeekerContact", :controller => "home", :prospect => value['id'].to_s }), {:class => "buttonStyle", :id => "post"} %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					</td>
 				<% end %>	
 			<% end %>	

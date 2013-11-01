@@ -5,7 +5,11 @@
 				<table align ="left">
 					<input type="hidden" name="educationID" value = "<%= @educationID %>"  id="educationID" >
 					<tr>
+<<<<<<< HEAD
 						<td width="150px">Institution *</td>
+=======
+						<td>Institution *</td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						<td><input type="text" name="university" value = "<%= value['college'] %>"  id="university" ></td>
 					</tr>	
 					<tr>
@@ -23,10 +27,15 @@
 					</tr>
 					<tr>
 						<td colspan="2">
+<<<<<<< HEAD
 							<ul style="float:left;list-style:none;">
 								<li style="float:left;list-style:none;"><button type="button">Add</button></li>
 								<li style="float:left;list-style:none;margin-top:-20px;"><%= submit_tag "Cancel", :onclick => "window.close()"  %></li>
 							<ul>
+=======
+							<button class="buttonStyle " type="button">Update</button>
+							<%= submit_tag "Cancel", :onclick => "window.close()" , :class => 'buttonStyle' %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						 </td>
 					</tr>
 				</table>

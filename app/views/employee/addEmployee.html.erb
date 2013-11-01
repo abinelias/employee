@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -41,3 +42,32 @@
 
 </body>
 </html>
+=======
+<title>Employee</title>
+<div id="container" style="width:100%" class ="textfont">
+	<div id="header" style="height:50px;margin-left: 3%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+		<table width="70%" border="0" cellpadding="0" cellspacing="0" align = "center">
+
+			<tr>
+				<td><div class ="fontHeading " align = "center"><h1>Employee Register</h1></div></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+					<%= form_tag(:action => "addEmployee") do  %>	
+						<%= render 'formAddEmployee' %>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+	</div>	
+</div>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318

@@ -7,6 +7,7 @@
 	}
 	
 	
+<<<<<<< HEAD
 	.drop { width:150px; }
 	.drops { width:150px; }
 	#jobDrop { width:150px; }
@@ -19,12 +20,21 @@
 	    font-size: 15px;
 	    padding: 10px;
 	}
+=======
+	.drop { width:250px; }
+	.drops { width:250px; }
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 </style>
 
 <style>
 	table.serifa{font-family:Arial,Helvetica,sans-serif;}
 </style>
 
+<<<<<<< HEAD
+=======
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 
 
@@ -41,10 +51,17 @@
 				  data: {'id' : $('.drop').val()},
 				  success: function(data) 
 				  {
+<<<<<<< HEAD
 						   $('.drops').empty();
 						   $('.drops').append( $('<option value= "">Select Speciality</option>'));						   
 						   $.each(data,function(i, v) {
 						   $('.drops').append( $('<option value="'+ data[i][0] +'">'+data[i][1] +'</option>'));
+=======
+						   $('#secDrop').empty();
+						   $('#secDrop').append( $('<option value= "">Select Speciality</option>'));						   
+						   $.each(data,function(i, v) {
+						   $('#secDrop').append( $('<option value="'+ data[i][0] +'">'+data[i][1] +'</option>'));
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						 });
 				  } 
 			  });
@@ -78,8 +95,13 @@
 
 <script>
 $(document).ready( function() {
+<<<<<<< HEAD
    $('.downdownbox').change( function() {
 	  var jobID  =  $('.downdownbox').val();
+=======
+   $('.jobDrop').change( function() {
+	  var jobID  =  $('.jobDrop').val();
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
       location.href = '/home/availableCandidate?jobID='+jobID;
       
    });
@@ -98,16 +120,28 @@ $(document).ready( function() {
 					</tr>
 					<tr>
 						<td width="200px">
+<<<<<<< HEAD
 							Select Category
 						</td>
 						<td width="300px">
 						
 							<%= select_tag "sel_group", options_for_select(@skill) ,{:id => "firstDrop" ,:class => "drop"} %>
+=======
+							please select your category
+						</td>
+						<td width="300px">
+						
+							<%= select_tag "sel_group", options_for_select(@skill) ,{:class => "drop"} %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						</td>
 					</tr>
 					<tr>
 						<td width="200px">
+<<<<<<< HEAD
 							Select Specialty
+=======
+							please select your Speciality
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						</td>
 						<td width="300px">
 						
@@ -117,6 +151,7 @@ $(document).ready( function() {
 				</table>
 			</div>
 			<div style="width:100%;">
+<<<<<<< HEAD
 				<span id ="txt"></span>
 				<div class="my" style="align:center; width:60%;"></div>
 				<div id = "btn"><input type = "submit" value = "Search"  name ="search"></div>	
@@ -126,6 +161,16 @@ $(document).ready( function() {
 		<div STYLE="margin-left: 40%">
 			<div style="width:100%;">
 				<table  width="500px">
+=======
+					<span id ="txt"></span>
+					<div class="my" style="align:center; width:60%;"></div>
+			</div>	<div id = "btn"><input type = "submit" value = "Search" class="buttonStyle" name ="search"></div>	
+		</div>
+		
+		<div STYLE="margin-left: 60%">
+			<div style="width:100%;">
+				<table>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					<tr>
 						<td>
 							Search by Jobs
@@ -133,12 +178,22 @@ $(document).ready( function() {
 					</tr>
 					<tr>
 						<td width="200px">
+<<<<<<< HEAD
 							Select Job
 						</td>
 						<td width="300px">
 							<%= select_tag "jobID", options_for_select(@jobs) ,{:id => "jobDrop" , :class => "downdownbox"} %>
 						</td>
 					</tr>
+=======
+							please select your Job
+						</td>
+						<td width="300px">
+							<%= select_tag "jobID", options_for_select(@jobs) ,{:class => "jobDrop"} %>
+						</td>
+					</tr>
+					
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				</table>
 			</div>		
 		</div>	

@@ -5,7 +5,11 @@
 		$('#myclass').change(function() {
 			$.ajax({ 
 				  type: 'GET', 
+<<<<<<< HEAD
 				  url: '/jobseeker/getSecond', 
+=======
+				  url: '/employee/getSecond', 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				  data: {'id' : $('#myclass').val()},
 				  success: function(data) {
 						  $('#my').empty();

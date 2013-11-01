@@ -32,7 +32,11 @@
 		var bounds = new google.maps.LatLngBounds();
 		var markersArray = [];
 
+<<<<<<< HEAD
 		var dist			 = 		new Array();
+=======
+
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		function initialize() 
 		{
 			
@@ -42,16 +46,24 @@
 
 		function calculateDistances() 
 		{
+<<<<<<< HEAD
 			var service 		 = 		new google.maps.DistanceMatrixService();
 			var org 			 = 		document.getElementById('address_input');
 			var origin			 = 		org.value;
 			var dest			 = 		new Array();
 			
+=======
+			var service = new google.maps.DistanceMatrixService();
+			var org 			 = 		document.getElementById('address_input');
+			var origin			 = 		org.value;
+			var dest			 = 		new Array();
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			<% @zip.each do |v| %>
 						var dta = <%= v %>
 						var dt= dta.toString()
 						dest.push(dt)	
 					<% end %>	
+<<<<<<< HEAD
 			
 			for (var i=0;i<2;i++)	
 			{	
@@ -73,6 +85,17 @@
 					
 			}		
 					
+=======
+			service.getDistanceMatrix(
+				{
+				  origins: [origin],
+				  destinations: dest,
+				  travelMode: google.maps.TravelMode.DRIVING,
+				  unitSystem: google.maps.UnitSystem.METRIC,
+				  avoidHighways: false,
+				  avoidTolls: false
+				}, callback);
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		}
 
 		function callback(response, status) 
@@ -85,23 +108,45 @@
 			{
 				var origins = response.originAddresses;
 				var destinations = response.destinationAddresses;
+<<<<<<< HEAD
 				alert(destinations);
 				var outputDiv = document.getElementById('outputDiv');
 				outputDiv.innerHTML = '';
 				
+=======
+				var outputDiv = document.getElementById('outputDiv');
+				outputDiv.innerHTML = '';
+				var dist			 = 		new Array();
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				
 				for (var i = 0; i < origins.length; i++) 
 				{
 					var results = response.rows[i].elements;
 					for (var j = 0; j < results.length; j++) 
 						{
+<<<<<<< HEAD
 							
+=======
+							outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
+							+ ': ' + results[j].distance.text + ' in '
+							+ results[j].duration.text + '<br>';
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							var d	=	parseFloat(results[j].distance.text)
 							dist.push(d);
 						}
 				}
 				alert(dist)
+<<<<<<< HEAD
 				
+=======
+				var myDist = JSON.stringify(dist);
+				$.ajax({ 
+				  type: 'GET', 
+				  url: '/employee/myJobFinder', 
+				  data: {'distance' : myDist},
+				  
+			  });
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			}
 		}
 		google.maps.event.addDomListener(window, 'load', initialize);

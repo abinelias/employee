@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 <script>
 	$(document).ready(function(){
@@ -39,6 +45,7 @@
 
 <div class = "textfont">
 	<div style="text-align:center;">
+<<<<<<< HEAD
 		<input type = "hidden" name = "jobIDVal" id = "jobID" value = <%= @jobID %> >
 		<table>
 			<tr>
@@ -51,6 +58,19 @@
 						<li style="float:left;list-style:none;"><button type="button">Add</button></li>
 						<li style="float:left;list-style:none;margin-top:-20px;"><%= submit_tag "Cancel", :onclick => "window.close()"  %></li>
 					<ul>
+=======
+		<table>
+			<tr>
+				<input type = "hidden" name = "jobIDVal" id = "jobID" value = <%= @jobID %> >
+				<td>Rate Yourself</td>
+				<td><textarea name="desc" placeholder = "Tell us why you’re a perfect fit for this job (140 characters or less)" id="comments"  style="width: 307px; height: 100px;"></textarea></td>
+			<tr>	
+			<tr>
+				<td></td>
+				<td>
+					<button class="buttonStyle " type="button">Submit</button>
+					<%= submit_tag "Cancel", :onclick => "window.close()" , :class => 'buttonStyle' %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				 </td>
 			</tr>
 		</table>

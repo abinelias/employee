@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 <div>
+=======
+<div class = "textfont">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	<% unless(@cntArray.blank?)%>	
 		<table>
 			<tr>	
 				<td>
 					<div class ="fontHeading " ><h1>Jobs Applied For</h1></div>
+<<<<<<< HEAD
 					</br>
 					<table width="100%" border="0" cellpadding="5" cellspacing="0" >
 						<tr bgcolor="#edf2f4">
+=======
+					<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+						<tr bgcolor="#4D94FF">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							<td width ="150">Jobs Applied</td>
 							<td width ="150">Company</td>
 							<td width ="150">Invited For Interview?</td>
@@ -14,8 +23,17 @@
 						</tr>
 						<% @cntArray.each do |value| %>	
 							<% @count = @count + 1 %>
+<<<<<<< HEAD
 							<tr>
 								<td width ="100"><%= link_to value['job']  , url_for({:controller => 'employee', :action => 'myJobAssessment' , :jobID => value['jobID'].to_s}) %></td>
+=======
+							<tr <% if (@count%2 == 0) %>
+												   bgcolor="#E4EFFF"
+											 <% else %>   	   	
+													bgcolor="#A6CAFF"
+											 <% end %>	>
+								<td width ="100"><%= link_to value['job']  , url_for({:controller => 'employee', :action => 'myJobAssessment' , :jobID => value['jobID'].to_s}), {:style=>'color:#FF0000;'} %></td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								<td width ="100"><%= value['company'].to_s %></td>
 								<td width ="100"><%= value['status'].to_s %></td>
 								<td width ="100"><%= value['closed'].to_s %></td>
@@ -32,18 +50,34 @@
 			<tr>	
 				<td>
 					<div class ="fontHeading " ><h1>Watched Jobs</h1></div>
+<<<<<<< HEAD
 					</br>
 					<table width="100%" border="0" cellpadding="5" cellspacing="0" >
 						<tr bgcolor="#edf2f4">
+=======
+					<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+						<tr bgcolor="#4D94FF">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							<td width ="150">Jobs Watched</td>
 							<td width ="150">Company</td>
 							
 						</tr>
 						<% @watchArray.each do |value| %>	
 							<% @count = @count + 1 %>
+<<<<<<< HEAD
 							<tr>
 								<td width ="100"><%= link_to value['job']  , url_for({:controller => 'employee', :action => 'myJobAssessment' , :jobID => value['jobID'].to_s}) %></td>
 								<td width ="100"><%= value['company'].to_s %></td>
+=======
+							<tr <% if (@count%2 == 0) %>
+												   bgcolor="#E4EFFF"
+											 <% else %>   	   	
+													bgcolor="#A6CAFF"
+											 <% end %>	>
+								<td width ="100"><%= link_to value['job']  , url_for({:controller => 'employee', :action => 'myJobAssessment' , :jobID => value['jobID'].to_s}), {:style=>'color:#FF0000;'} %></td>
+								<td width ="100"><%= value['company'].to_s %></td>
+								
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							</tr>
 						<% end %>	
 					</table>

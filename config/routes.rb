@@ -61,8 +61,11 @@ Employee::Application.routes.draw do
 	match "/home/preRequsiteNew"				=>		"home#preRequsiteNew"
 	match "/home/homePage"						=>		"home#homePage" 
 	match "/home/signout"						=>		"home#signout"
+<<<<<<< HEAD
 	match "/home/csv_method"					=>		"home#csv_method"
 	match "/home/demo"							=>		"home#demo"	
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	
 	
 	match "/jobseeker/courseDetails"			=>		"employee#courseDetails"	

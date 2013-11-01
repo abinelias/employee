@@ -40,11 +40,20 @@
 								<td style="visibility:hidden"></td>
 								<td style="visibility:hidden"></td>
 								<td style="visibility:hidden"></td>
+<<<<<<< HEAD
+=======
+								<td style="visibility:hidden"></td>
+								<td style="visibility:hidden"></td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								<td bgcolor="#E6CC80"><div title="Total skill score for the job"><%= value['jobSkillScore'] %></div></td>
 							</tr>
 
 						<tr>
+<<<<<<< HEAD
 							<td colspan="6" align = "center"><% if (value['check'] == 0) %>
+=======
+							<td colspan="8" align = "center"><% if (value['check'] == 0) %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																<div title="Click to view candidate prifile"><%= link_to value['candidateName']  , url_for({:controller => 'home', :action => 'jobSeekerProfile' , :prospect => value['candidateID'].to_s , :jobID => @jobID.to_s }), {:style=>'color:#0066FF;'} %></div><br><div title="Score of the candidate for the job"><%= value['employeeSkillScore'] %></div></td>
 															  <% else %>
 																<div title="Click to view candidate prifile"><%= link_to value['candidateName']  , url_for({:controller => 'home', :action => 'jobSeekerProfile' , :prospect => value['candidateID'].to_s , :jobID => @jobID.to_s }), {:style=>'color:#FF0000;'} %></div><br><div title="Score of the candidate for the job"><%= value['employeeSkillScore'] %></div></td>
@@ -57,6 +66,11 @@
 							<td style="visibility:hidden"></td>
 							<td style="visibility:hidden"></td>
 							<td style="visibility:hidden"></td>
+<<<<<<< HEAD
+=======
+							<td style="visibility:hidden"></td>
+							<td style="visibility:hidden"></td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							<td bgcolor="#E6CC80">3</td>
 						</tr>
 						</table>
@@ -70,7 +84,11 @@
 						<% end %>
 			<% end %>			
 			<tr>
+<<<<<<< HEAD
 				<td><input type="submit" name="add" value="Compare" id="add" onclick ="return validateForm()" ></td>
+=======
+				<td><input type="submit" name="add" value="Compare" id="add" onclick ="return validateForm()" class="buttonStyle "></td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			</tr>	
 		</table>
 	</div>

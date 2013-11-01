@@ -1,11 +1,36 @@
+<<<<<<< HEAD
 
 
 <div>
+=======
+<style type="text/css">
+
+.button_container
+{
+	width:100%;
+}
+.button_container li
+{
+	width:300px;
+	list-style:none;
+	float:left;
+	padding:10px;
+}
+</style>
+<style>
+	table.serifa{font-family:Arial,Helvetica,sans-serif;}
+</style>
+<div class = "textfont">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	 <table>
 		 <% unless(@companyDetails.nil?)%>
 			<% @companyDetails.each do |value| %>
 				<tr>
+<<<<<<< HEAD
 					<td>Company Name: </td><td><%= link_to value['companyName']  , url_for({:controller => 'home', :action => 'editCompany' , :companyID => value['companyID'].to_s}) %> <td>
+=======
+					<td>Company Name: </td><td><%= link_to value['companyName']  , url_for({:controller => 'home', :action => 'editCompany' , :companyID => value['companyID'].to_s}), {:style=>'color:#FF0000;'} %> <td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				</tr>
 				<tr>
 					<td>Location:</td><td> <%= value['companyCity'] %>, <%= value['companyState'] %> <td>
@@ -16,19 +41,37 @@
 			<tr>
 				</td>
 					<table cellpadding="5"> 
+<<<<<<< HEAD
 						<tr align="center" valign="middle" bgcolor="#edf2f4">							
 							<th width="150">Position</th>	             
 							<th width="150">Status</th>               				
 							<th width="150">Owner(s)</th>   
 							<th width="150"># of days posted</th>  
 							<th width="150"># of job seekers applied</th>          				
+=======
+						<tr align="center" valign="middle" bgcolor="#4D94FF">							
+							<th width="150">Position</th>	             
+							<th width="150">Status</th>               				
+							<th width="150">Owners(s)</th>   
+							<th width="150"># of days position posted</th>  
+							<th width="150"># of jobseeker applied</th>          				
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							<th width="150">Actions</th>
 																						
 						</tr>
 						<% @dash.each do |value| %>
 										<% @count = @count + 1 %>
+<<<<<<< HEAD
 										<tr>
 											<td><%= link_to value['position']  , url_for({:controller => 'home', :action => 'edit' , :jobID => value['jobID'].to_s}) %></td>
+=======
+										<tr <% if (@count%2 == 0) %>
+													   bgcolor="#E4EFFF"
+												 <% else %>   	   	
+														bgcolor="#A6CAFF"
+												 <% end %>		>
+											<td><%= link_to value['position']  , url_for({:controller => 'home', :action => 'edit' , :jobID => value['jobID'].to_s}), {:style=>'color:#FF0000;'} %></td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 											<td><%= value['status'].to_s %></td>
 											<td><%= value['owners'].to_s  %></td>
 											<td  align ="center"><%= value['noOfDays'].to_s  %></td>

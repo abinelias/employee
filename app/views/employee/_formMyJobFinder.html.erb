@@ -24,6 +24,7 @@
 			border:1px solid #0e0e0e; 
 			width:100px;
 		}
+<<<<<<< HEAD
 		#firstDrop 
 		{
 	    border: 1px solid #D1D3D5;
@@ -33,6 +34,8 @@
 	    font-size: 15px;
 	    padding: 10px;
 	}
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	</style>
 	
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -66,7 +69,11 @@
 		var bounds = new google.maps.LatLngBounds();
 		var markersArray = [];
 
+<<<<<<< HEAD
 		var dist			 = 		new Array();
+=======
+
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		function initialize() 
 		{
 			
@@ -76,16 +83,24 @@
 
 		function calculateDistances() 
 		{
+<<<<<<< HEAD
 			var service 		 = 		new google.maps.DistanceMatrixService();
 			var org 			 = 		document.getElementById('address_input');
 			var origin			 = 		org.value;
 			var dest			 = 		new Array();
 			
+=======
+			var service = new google.maps.DistanceMatrixService();
+			var org 			 = 		document.getElementById('address_input');
+			var origin			 = 		org.value;
+			var dest			 = 		new Array();
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			<% @zip.each do |v| %>
 						var dta = <%= v %>
 						var dt= dta.toString()
 						dest.push(dt)	
 					<% end %>	
+<<<<<<< HEAD
 			
 			for (var i=0;i<3;i++)	
 			{	
@@ -107,6 +122,17 @@
 					
 			}		
 					
+=======
+			service.getDistanceMatrix(
+				{
+				  origins: [origin],
+				  destinations: dest,
+				  travelMode: google.maps.TravelMode.DRIVING,
+				  unitSystem: google.maps.UnitSystem.METRIC,
+				  avoidHighways: false,
+				  avoidTolls: false
+				}, callback);
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		}
 
 		function callback(response, status) 
@@ -119,22 +145,40 @@
 			{
 				var origins = response.originAddresses;
 				var destinations = response.destinationAddresses;
+<<<<<<< HEAD
 				//alert(destinations);
 				var outputDiv = document.getElementById('outputDiv');
 				outputDiv.innerHTML = '';
 				
+=======
+				var outputDiv = document.getElementById('outputDiv');
+				outputDiv.innerHTML = '';
+				var dist			 = 		new Array();
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				
 				for (var i = 0; i < origins.length; i++) 
 				{
 					var results = response.rows[i].elements;
 					for (var j = 0; j < results.length; j++) 
 						{
+<<<<<<< HEAD
 							
 							var d	=	parseFloat(results[j].distance.text)
 							dist.push(d);
 						}
 				}
 				//alert(dist.length)
+=======
+							outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
+							+ ': ' + results[j].distance.text + ' in '
+							+ results[j].duration.text + '<br>';
+							var d	=	parseFloat(results[j].distance.text);
+							d = d * 0.621;
+							dist.push(d);
+						}
+				}
+				alert(dist)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				var myDist = JSON.stringify(dist);
 				$.ajax({ 
 				  type: 'GET', 
@@ -142,6 +186,7 @@
 				  data: {'distance' : myDist},
 				  success: function(data) 
 				  {
+<<<<<<< HEAD
 						//alert(data);
 				  }
 				  
@@ -151,6 +196,16 @@
 		}
 		google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+=======
+						alert(data);
+				  }
+				  
+			  });
+			}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 <style>
 	table.serifa{font-family:Arial,Helvetica,sans-serif;}
@@ -288,6 +343,7 @@
 					  {
 						    	
 							list	=	data.listJobs
+<<<<<<< HEAD
 							totals	=	data.totJob
 							$("#joblist").empty();
 							$("#jobname").empty();
@@ -302,6 +358,19 @@
 								$('#joblist').append($('<tr><td>No: of positions : ' + item.noOpen + '</td></tr>'));
 								$('#joblist').append($('<tr><td>Posted : ' + item.noDays + ' days ago</td></tr>'));
 								$('#joblist').append($('<tr><td>Skills Required: </td></tr>'));
+=======
+							$("#joblist").empty();
+							$("#jobname").empty();
+							$(".first").empty();
+							$.each(list, function(i,item) {
+								$('#joblist').append($('<tr><td class ="fontMyJobsTitle"><a href=/jobseeker/myJobAssessment?jobID=' + item.jobID + '>' + item.JobDesc + '</a>(' + item.scoreJob + ')</td></tr>'));
+								$('#joblist').append($('<br>'));
+								$('#joblist').append($('<tr><td class ="fontMyJobsComp">Company Name :-' + item.compName + ' , ' + item.location + '</td></tr>'));
+								$('#joblist').append($('<tr><td>' + item.jobDetails + '</td></tr>'));
+								$('#joblist').append($('<tr><td>No: of positions :-' + item.noOpen + '</td></tr>'));
+								$('#joblist').append($('<tr><td>Posted :-' + item.noDays + ' days ago</td></tr>'));
+								$('#joblist').append($('<tr><td>Skills Required:-</td></tr>'));
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								if(item.skillName1)$('#joblist').append($('<tr><td>► ' + item.skillName1 + '</td></tr>'));
 								if(item.skillName2)$('#joblist').append($('<tr><td>► ' + item.skillName2 + '</td></tr>'));
 								if(item.skillName3)$('#joblist').append($('<tr><td>► ' + item.skillName3 + '</td></tr>'));
@@ -410,14 +479,22 @@
 			
 			<tr>	
 				<td width ="50">
+<<<<<<< HEAD
 					<%= select_tag "distance", options_for_select(@distHash) ,{:onchange => "validate()", :class => "drop", :id => "firstDrop"} %>
+=======
+					<%= select_tag "distance", options_for_select(@distHash) ,{:onchange => "validate()", :class => "drop"} %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				</td>
 			</tr>
 			<tr> 
 				<td width ="50">
 					<div>
 						From:<input type="text" name="address1" title="my location" value="" id="address_input" class="textbox_blur" onfocus="javascript:onTextFocus();" onblur="javascript:onTextBlur();" >
+<<<<<<< HEAD
 						<button  type="button" onclick="calculateDistances();" style="float:right;">Search</button>
+=======
+						<button class="buttonStyle " type="button" onclick="calculateDistances();" style="float:right;">check</button>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					</div>
 					<div id="outputDiv" style="visibility:hidden"></div>
 					</div>
@@ -437,6 +514,7 @@
 	<div class ="first" STYLE="margin-left: 30%">
 		<table align ="center" width="70%">
 			<% unless(@cntArray.blank?)%>
+<<<<<<< HEAD
 				<div id ="total"><tr><td align ="right">Total Number of jobs: <%= @cntArray.size %></td></tr></div>
 				<% @cntArray.each do |value| %>
 					<tr><td class ="fontMyJobsTitle"><% if(value['display'] == "0" ) %> <%=value['JobDesc'] %> <% else %> <a href=/jobseeker/myJobAssessment?jobID=<%=value['jobID'] %> > <%=value['JobDesc'] %> </a> <% end %>(<%=value['scoreJob'] %>)</td></tr>
@@ -445,6 +523,16 @@
 					<tr><td>No: of positions : <%=value['noOpen'] %></td></tr>
 					<tr><td>Job posted : <%=value['noDays'] %> days ago</td></tr>
 					<tr><td>Skills Required: </td></tr>
+=======
+				<tr><td align ="right">Total Number of jobs:-<%= @cntArray.size %></td></tr>
+				<% @cntArray.each do |value| %>
+					<tr><td class ="fontMyJobsTitle"><a href=/jobseeker/myJobAssessment?jobID=<%=value['jobID'] %> > <%=value['JobDesc'] %> </a>(<%=value['scoreJob'] %>)</td></tr>
+					<tr><td class ="fontMyJobsComp">Company Name :-<%=value['compName'] %> , <%=value['location'] %></td></tr
+					<tr><td><%=value['jobDetails'] %></td></tr>
+					<tr><td>No: of positions :-<%=value['noOpen'] %></td></tr>
+					<tr><td>Job posted :-<%=value['noDays'] %> days ago</td></tr>
+					<tr><td>Skills Required:-</td></tr>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					<% if(value['skillName1']) %> <tr><td>► <%=value['skillName1'] %></td></tr> <% end %>
 					<% if(value['skillName2']) %> <tr><td>► <%=value['skillName2'] %></td></tr> <% end %>
 					<% if(value['skillName3']) %> <tr><td>► <%=value['skillName3'] %></td></tr> <% end %>

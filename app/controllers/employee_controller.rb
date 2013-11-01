@@ -3,7 +3,10 @@ class EmployeeController < ApplicationController
 require 'json'
 	def login
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		unless(params[:login].nil?)
 			empUsName								=		params[:empUsName]
 			empPass							    	=		params[:empPass]
@@ -325,7 +328,11 @@ require 'json'
 		unless(params[:id].blank?)
 			skills	  								=  		params[:id].to_s
 			unless(skills.nil?)
+<<<<<<< HEAD
 				@text	=	Skill.where(:parentid => skills).sort(:name).all
+=======
+				@text	=	Skill.where(:parentid => skills).all
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			end	
 			render :json => @text.map{|c| [c.id, c.name]}
         end	
@@ -573,7 +580,10 @@ require 'json'
 	end
 	
 	def myskillsForAddMyskill
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		@skillName			      								= 		Array.new
 		@first													= 		Array.new
         data 													= 		session[:userid]
@@ -609,6 +619,7 @@ require 'json'
 								 end 
 				end	
 			end	
+<<<<<<< HEAD
 		end	
 		render :layout => false	 
 	end
@@ -653,6 +664,23 @@ require 'json'
 								   end
 				end
 					
+=======
+		end		 
+	end
+	
+	def portfolioNew
+		@skillName			      				= 		Array.new
+		@first									= 		Array.new
+		unless(params[:addSkill].blank?)
+			redirect_to :action 				=>		"addMyskillsPortfolio"
+        end
+       	@skillDetails							=		Array.new	
+       	@count									=		0		
+		
+		unless(session[:userid].blank?)
+			info								=		Portfolio.find_by_ownerid(session[:userid].to_s)
+			unless(info.blank?)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				information						=		info.id	
 				unless(information.nil?)
 					Portfolioitem.where(:portfolioid =>information.to_s).all.each do |valu|
@@ -687,9 +715,12 @@ require 'json'
 						end
 				end	
 			end	
+<<<<<<< HEAD
 			
 			data									=		Prospect.find_by_id(session[:userid].to_s.to_s)
 			@dataARY.push("firstname" => data.employeefirstname, "lastname" => data.employeelastname, "address" => data.employeeaddress, "city" => data.city, "state" => data.state, "country" => data.country, "zip" => data.zip , "mobile" => data.employeemobile, "username" => data.employeeusername , "twitter" => data.twitter, "linkedin" => data.linkedin)
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		end	 
 	end
 	
@@ -1419,7 +1450,11 @@ require 'json'
 	end	
 	
 	def myEducationDashboard
+<<<<<<< HEAD
 		@eduArray      							= 		Array.new
+=======
+		@cntArray      							= 		Array.new
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		@data 									= 		session[:userid] 
 		@count									=		0	
 		unless(@data.to_s.nil?)
@@ -1428,7 +1463,11 @@ require 'json'
 				education						=		emp_data.education
 				unless(education.nil?)
 					education.each do |val|
+<<<<<<< HEAD
 										@eduArray.push("educationID" => val.id.to_s , "degree" => val.degree , "college" => val.college , "date" => val.date, "field" => val.field)
+=======
+										@cntArray.push("educationID" => val.id.to_s , "degree" => val.degree , "college" => val.college , "date" => val.date, "field" => val.field)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								   end
 				end
 			end					 
@@ -1620,6 +1659,7 @@ require 'json'
 		@count												=		0
 		@cont												=		0	
 		@ct													=		0	
+<<<<<<< HEAD
 		@skillData											=		Array.new	
 		
 		emp_data  											= 		Prospect.find_by_id(session[:userid].to_s)
@@ -1634,6 +1674,9 @@ require 'json'
 		end
 		
 						
+=======
+		@skillData											=		Array.new					
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		unless(params[:jobID].nil?)
 			@jobID											=		params[:jobID] 
 			data											=		Jobposting.find_by_id(params[:jobID].to_s)	
@@ -1738,8 +1781,12 @@ require 'json'
 	end
 	
 	def courseDetails
+<<<<<<< HEAD
 		@courseDetailsArray									=		Array.new		
 		@cours 												=		params[:course].to_s				
+=======
+		@courseDetailsArray									=		Array.new						
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		unless(params[:course].nil?)
 			coursedetails									=		Skill.find_by_id(params[:course].to_s).course
 			unless(coursedetails.nil?)
@@ -1756,8 +1803,11 @@ require 'json'
 		unless(params[:distance].nil?)
 			$distArray 										=		Array.new
 			$distArray 										= 		ActiveSupport::JSON.decode(params[:distance])
+<<<<<<< HEAD
 			@text								=	"1"
 			render :json => @text
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		end	
 	end
 	
@@ -1777,6 +1827,7 @@ require 'json'
 	end
 	
 	def maps
+<<<<<<< HEAD
 		@zip 												= 		Array.new
 		@zip.push(20190)
 		@zip.push(20190)
@@ -1824,6 +1875,15 @@ require 'json'
 		@zip.push(20190)
 		@zip.push(20190)	
 		@zip.push(20190)			
+=======
+		@zip = Array.new
+		cnt_data  											= 		Jobopening.sort(:created_at).all
+		unless(cnt_data.nil?)
+				cnt_data.each do |val|
+									@zip.push(val.zip)
+							 end
+		end	
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	end
 	
 	def myJobFinder
@@ -1831,8 +1891,11 @@ require 'json'
 		@noDays												=		Array.new
 		@cntArray											=		Array.new
 		@cnt_data  											= 		Jobposting.sort(:created_at.desc).all
+<<<<<<< HEAD
 		@skillInfoData										= 		Skill.sort(:created_at.desc).all
 		@skillQuery											=		Skillsrating.sort(:created_at.desc).all
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		@ab													=		Array.new
 		@ac													=		Array.new
 		@skillAry											=		Array.new
@@ -1845,6 +1908,7 @@ require 'json'
 		@cnt_data.each do |val|  
 							@zip.push((Employer.find_by_id(val.postingcompany)).zip)
 							@noDays.push((Date.today - val.created_at.to_date ).to_i)
+<<<<<<< HEAD
 					   end	
 					   
 		userid 		 = 		Portfolio.find_by_ownerid(session[:userid].to_s).id
@@ -1883,10 +1947,36 @@ require 'json'
 																			  @skillRating			=		data.skillrating
 																		  end
 																	 end
+=======
+					   end		
+			
+		unless(@cnt_data.nil?)
+				@cnt_data.zip(@noDays).each do |val, vale|  
+													company		=		val.postingcompany
+													comp		=		Employer.find_by_id(company.to_s)
+													name		=		comp.name
+													loc			=		comp.city + ',' + comp.state + ',' + comp.zip.to_s	
+													companytype	=		comp.companytype
+
+													
+													userid 		 = 		Portfolio.find_by_ownerid(session[:userid].to_s).id
+													Portfolioitem.where(:portfolioid => userid.to_s).all.each do |valu|
+																		portId				=		valu.id
+																		skillQuery			=		Portfolioitemskill.find_by_portfolioitemid(portId.to_s)
+																		unless(skillQuery.value.blank?)	
+																			@skillData.push("skillID" => skillQuery.skillid, "value" => skillQuery.value) 
+																		end
+																   end
+												
+													data							=				session[:userid].to_s
+													reqSkills						=				val.requiredskills
+													desSkills						=				val.desiredskills
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																								
 													unless(data.blank?)
 														unless(reqSkills.blank?)
 															reqSkills.each do |value|
+<<<<<<< HEAD
 																				if(@skillAry.length <5)
 																					@skillInfoData.each do |info|
 																											if(info.id.to_s == value.to_s)
@@ -1896,12 +1986,23 @@ require 'json'
 																				end	
 																				#@skillName										    = 		@skillAry.join(',')
 																				@skillRating.each do |vals| 
+=======
+																				@skillAry.push(Skill.find_by_id(value.to_s).name)
+																				#@skillName										    = 		@skillAry.join(',')
+																				skillQuery											=		Skillsrating.find_by_jobID(val.id.to_s)
+																				skillRating											=		skillQuery.skillrating
+																				skillRating.each do |vals| 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																									if(vals.skillid.to_s == value.to_s)
 																										@proficency					= 		vals.priority.to_i 
 																										@Impotance					= 		vals.ranking.to_i 
 																									end	
 																								end	
 																				if(@skillData.empty?)
+<<<<<<< HEAD
+=======
+																					@name											=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																					@rate.push("jobseekerID" => val ,"skillID" => value, "prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)																	
 																				else
 																					if(h = @skillData.find { |h| h['skillID'] == value })
@@ -1910,6 +2011,10 @@ require 'json'
 																												@rate.push("jobseekerID" => val , "skillID" => value, "prof" => @prof, "employerProf" => @proficency , "employerImp" => @Impotance)
 																										end	
 																					else
+<<<<<<< HEAD
+=======
+																						 @name										=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																						 @rate.push("jobseekerID" => val , "skillID" => value, "prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)
 																					end	
 																				end	
@@ -1919,7 +2024,13 @@ require 'json'
 														end	
 														unless(desSkills.blank?)			   
 															 desSkills.each do |value|
+<<<<<<< HEAD
 																				@skillRating.each do |vals| 
+=======
+																				skillQuery												=		Skillsrating.find_by_jobID(val.id.to_s)
+																				skillRating												=		skillQuery.skillrating
+																				skillRating.each do |vals| 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																									if(vals.skillid.to_s == value.to_s)
 																										@proficency						= 		vals.priority.to_i 
 																										@Impotance						= 		vals.ranking.to_i 
@@ -1928,6 +2039,10 @@ require 'json'
 																					
 																				
 																				if(@skillData.empty?)
+<<<<<<< HEAD
+=======
+																					@name												=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																					@rate.push("prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)																	
 																				else
 																					if(h = @skillData.find { |h| h['skillID'] == value })
@@ -1936,6 +2051,10 @@ require 'json'
 																												@rate.push("prof" => @prof, "employerProf" => @proficency , "employerImp" => @Impotance)
 																										  end	
 																					else
+<<<<<<< HEAD
+=======
+																						 @name											=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																						 @rate.push("prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)
 																					end	
 																				end	
@@ -1945,6 +2064,7 @@ require 'json'
 														end				   			   
 																	
 														@rate.each do |value|
+<<<<<<< HEAD
 																		if((value['prof'].to_i == 1) && (value['employerProf'].to_i == 1))
 																			@gaf		=	1
 																		elsif((value['prof'].to_i == 1) && (value['employerProf'].to_i == 2))	
@@ -2004,6 +2124,9 @@ require 'json'
 																		else
 																			@totalEmployeeScore	=	@totalEmployeeScore + 0
 																		end	
+=======
+																		@totalEmployeeScore	=	@totalEmployeeScore  + (value['prof'].to_i * value['employerImp'].to_i)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																   end	
 														
 														@rate.clear	
@@ -2011,6 +2134,7 @@ require 'json'
 														desSkills.clear
 														
 													end	
+<<<<<<< HEAD
 													if(@totalEmployeeScore > 0)
 														if(applied.include? val.id.to_s)
 															@cntArray.push( "scoreJob" => @totalEmployeeScore  , "noOpen" => val.numpositions , "JobDesc" => val.description,  "noDays" => vale , "jobID" => val.id,  "compName" => name, "jobDetails" => val.details, "skillName1" => @skillAry[0], "skillName2" => @skillAry[1] , "skillName3" => @skillAry[2] , "skillName4" => @skillAry[3] , "skillName5" => @skillAry[4] , "location" => loc , "display" => "0")	
@@ -2018,14 +2142,33 @@ require 'json'
 															@cntArray.push( "scoreJob" => @totalEmployeeScore  , "noOpen" => val.numpositions , "JobDesc" => val.description,  "noDays" => vale , "jobID" => val.id,  "compName" => name, "jobDetails" => val.details, "skillName1" => @skillAry[0], "skillName2" => @skillAry[1] , "skillName3" => @skillAry[2] , "skillName4" => @skillAry[3] , "skillName5" => @skillAry[4] , "location" => loc , "display" => "1")															
 														end
 													end	
+=======
+													@cntArray.push( "scoreJob" => @totalEmployeeScore  , "noOpen" => val.numpositions , "JobDesc" => val.description,  "noDays" => vale , "jobID" => val.id,  "compName" => name, "jobDetails" => val.details, "skillName1" => @skillAry[0], "skillName2" => @skillAry[1] , "skillName3" => @skillAry[2] , "skillName4" => @skillAry[3] , "skillName5" => @skillAry[4] , "location" => loc )	
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 													@totalEmployeeScore			=				0
 													@skillName					=				nil
 													@skillAry.clear
 											end	
 			unless(@cntArray.blank?)
 					@cntArray.sort_by! {|e| -e["scoreJob"] }
+<<<<<<< HEAD
 			end											
 		end	
+=======
+			end										
+
+            @ab.clear
+			@cntArray.each do |val|
+								if(val["scoreJob"] != 0)
+									@ab.push(val);
+								end	
+							end
+			@cntArray.clear				
+			@ab.each do |val|
+							@cntArray.push(val);
+					 end														
+		end		
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	end
 	
 	def applyJob
@@ -2192,8 +2335,11 @@ require 'json'
 			@cntArray											=		Array.new
 			$dataArray											=		Array.new
 			@cnt_data  											= 		Jobposting.sort(:created_at.desc).all
+<<<<<<< HEAD
 			@skillInfoData										= 		Skill.sort(:created_at.desc).all
 			@skillQuery											=		Skillsrating.sort(:created_at.desc).all
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			@ab													=		Array.new
 			@ac													=		Array.new
 			@skillAry											=		Array.new
@@ -2205,6 +2351,7 @@ require 'json'
 								@zip.push((Employer.find_by_id(val.postingcompany)).zip)
 								@noDays.push((Date.today - val.created_at.to_date ).to_i)
 						   end		
+<<<<<<< HEAD
 			userid 		 = 		Portfolio.find_by_ownerid(session[:userid].to_s).id
 			Portfolioitem.where(:portfolioid => userid.to_s).all.each do |valu|
 								portId				=		valu.id
@@ -2250,20 +2397,63 @@ require 'json'
 																						end	
 																						#@skillName										    = 		@skillAry.join(',')
 																						@skillRating.each do |vals| 
+=======
+			unless(@cnt_data.nil?)
+				#unless($distArray.blank?)
+				@cnt_data.zip(@noDays).each do |val, vale, va|  
+															company		=		val.postingcompany
+															comp		=		Employer.find_by_id(company.to_s)
+															name		=		comp.name
+															loc			=		comp.city + ',' + comp.state + ',' + comp.zip.to_s	
+															companytype	=		comp.companytype
+
+															
+															userid 		 = 		Portfolio.find_by_ownerid(session[:userid].to_s).id
+															Portfolioitem.where(:portfolioid => userid.to_s).all.each do |valu|
+																				portId				=		valu.id
+																				skillQuery			=		Portfolioitemskill.find_by_portfolioitemid(portId.to_s)
+																				unless(skillQuery.value.blank?)	
+																					@skillData.push("skillID" => skillQuery.skillid, "value" => skillQuery.value) 
+																				end
+																		   end
+														
+															data							=				session[:userid].to_s
+															reqSkills						=				val.requiredskills
+															desSkills						=				val.desiredskills
+															
+															unless(data.blank?)
+																unless(reqSkills.blank?)
+																	reqSkills.each do |value|
+																						@skillAry.push(Skill.find_by_id(value.to_s).name)
+																						#@skillName    = 		@skillAry.join(',')
+																						skillQuery											=		Skillsrating.find_by_jobID(val.id.to_s)
+																						skillRating											=		skillQuery.skillrating
+																						skillRating.each do |vals| 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																											if(vals.skillid.to_s == value.to_s)
 																												@proficency					= 		vals.priority.to_i 
 																												@Impotance					= 		vals.ranking.to_i 
 																											end	
 																										end	
 																						if(@skillData.empty?)
+<<<<<<< HEAD
+=======
+																							@name											=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																							@rate.push("jobseekerID" => val ,"skillID" => value, "prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)																	
 																						else
 																							if(h = @skillData.find { |h| h['skillID'] == value })
 																								h['value'].each do |vlue|
 																														@prof				=		vlue.proficency.to_i
 																														@rate.push("jobseekerID" => val , "skillID" => value, "prof" => @prof, "employerProf" => @proficency , "employerImp" => @Impotance)
+<<<<<<< HEAD
 																												end	
 																							else
+=======
+																												  end	
+																							else
+																								 @name										=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																								 @rate.push("jobseekerID" => val , "skillID" => value, "prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)
 																							end	
 																						end	
@@ -2273,7 +2463,13 @@ require 'json'
 																end	
 																unless(desSkills.blank?)			   
 																	 desSkills.each do |value|
+<<<<<<< HEAD
 																						@skillRating.each do |vals| 
+=======
+																						skillQuery												=		Skillsrating.find_by_jobID(val.id.to_s)
+																						skillRating												=		skillQuery.skillrating
+																						skillRating.each do |vals| 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																											if(vals.skillid.to_s == value.to_s)
 																												@proficency						= 		vals.priority.to_i 
 																												@Impotance						= 		vals.ranking.to_i 
@@ -2282,6 +2478,10 @@ require 'json'
 																							
 																						
 																						if(@skillData.empty?)
+<<<<<<< HEAD
+=======
+																							@name												=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																							@rate.push("prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)																	
 																						else
 																							if(h = @skillData.find { |h| h['skillID'] == value })
@@ -2290,6 +2490,10 @@ require 'json'
 																														@rate.push("prof" => @prof, "employerProf" => @proficency , "employerImp" => @Impotance)
 																												  end	
 																							else
+<<<<<<< HEAD
+=======
+																								 @name											=		Skill.find_by_id(value).name
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																								 @rate.push("prof" => 0, "employerProf" => @proficency , "employerImp" => @Impotance)
 																							end	
 																						end	
@@ -2299,6 +2503,7 @@ require 'json'
 																end				   			   
 																			
 																@rate.each do |value|
+<<<<<<< HEAD
 																				if((value['prof'].to_i == 1) && (value['employerProf'].to_i == 1))
 																					@gaf		=	1
 																				elsif((value['prof'].to_i == 1) && (value['employerProf'].to_i == 2))	
@@ -2360,11 +2565,17 @@ require 'json'
 																				end	
 																		   end	
 																
+=======
+																				@totalEmployeeScore	=	@totalEmployeeScore  + (value['prof'].to_i * value['employerImp'].to_i)
+																		   end	
+														
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 																@rate.clear	
 																reqSkills.clear
 																desSkills.clear
 																
 															end	
+<<<<<<< HEAD
 															if(@totalEmployeeScore > 0)
 																@cntArray.push( "distance" => vale , "copmanyPost" => val.numpositions , "scoreJob" => @totalEmployeeScore  , "noOpen" => val.numpositions , "JobDesc" => val.description,  "noDays" => va  , "salary" => val.salary, "jobID" => val.id, "type" => companytype,  "compName" => name, "jobDetails" => val.details, "skillName1" => @skillAry[0], "skillName2" => @skillAry[1] , "skillName3" => @skillAry[2] , "skillName4" => @skillAry[3] , "skillName5" => @skillAry[4] , "location" => loc )	
 															end	
@@ -2375,6 +2586,16 @@ require 'json'
 				 unless(@cntArray.blank?)
 					@cntArray.sort_by! {|e| -e["scoreJob"] }
 				end															
+=======
+													@cntArray.push( "scoreJob" => @totalEmployeeScore , "copmanyPost" => val.numpositions , "noOpen" => val.numpositions , "JobDesc" => val.description, "distance" => vale , "noDays" => vale , "salary" => val.salary, "jobID" => val.id, "type" => companytype, "compName" => name, "jobDetails" => val.details,  "skillName1" => @skillAry[0], "skillName2" => @skillAry[1] , "skillName3" => @skillAry[2] , "skillName4" => @skillAry[3] , "skillName5" => @skillAry[4], "location" => loc )	
+													@totalEmployeeScore			=				0
+													@skillName					=				nil
+													@skillAry.clear
+											end	
+				unless(@cntArray.blank?)
+						@cntArray.sort_by! {|e| -e["scoreJob"] }
+				end										
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			end	
 				
 			unless(params[:filter].nil?)
@@ -2443,6 +2664,7 @@ require 'json'
 				end	
 				
 				unless(@ab.blank?)
+<<<<<<< HEAD
 					@ab.each do |item| 
 								@ac.push(item)	
 							end
@@ -2503,6 +2725,74 @@ require 'json'
 				end
 				if((params[:filter].include? "13") || (params[:filter].include? "14") || (params[:filter].include? "15") || (params[:filter].include? "16") || (params[:filter].include? "17"))		
 					unless(@ac.blank?)	
+=======
+					@cntArray.clear
+					@ab.each do |item| 
+								@cntArray.push(item)	
+							end
+					@ab.clear
+				else
+					@cntArray.clear														
+				end	
+						
+				if((params[:filter].include? "8") || (params[:filter].include? "9") || (params[:filter].include? "10" ) || (params[:filter].include? "11") || (params[:filter].include? "12"))		
+					unless(@cntArray.blank?)	
+						
+					
+					if(params[:filter].include? "8")
+						@maxlimit										=				"5215f5bbf1bb55071c000554"
+						@cntArray.each do |item| 
+											if((item['type'].to_s  == @maxlimit.to_s))
+												@ab.push(item)
+											end
+										end
+					end					
+					if(params[:filter].include? "9")
+						@maxlimit										=				"5215fd74f1bb55071c00055f"
+						@cntArray.each do |item| 
+											if((item['type'].to_s  == @maxlimit.to_s))
+												@ab.push(item)
+											end
+										end	
+					end					
+					if(params[:filter].include? "10")
+						@maxlimit										=				"5215fd8df1bb55071c000570"
+						@cntArray.each do |item| 
+											if((item['type'].to_s  == @maxlimit.to_s))
+												@ab.push(item)
+											end
+										end
+					end					
+					if(params[:filter].include? "11")
+						@maxlimit										=				"5215fda5f1bb55071c000589"
+						@cntArray.each do |item| 
+											if((item['type'].to_s  == @maxlimit.to_s))
+												@ab.push(item)
+											end
+										end
+					end					
+					if(params[:filter].include? "12")
+						@maxlimit										=				"5215fdc6f1bb55071c0005aa"
+						@cntArray.each do |item| 
+											if((item['type'].to_s  == @maxlimit.to_s))
+												@ab.push(item)
+											end
+										end
+					end
+					unless(@ab.blank?)
+						@cntArray.clear
+						@ab.each do |item| 
+									@cntArray.push(item)	
+								 end
+						@ab.clear	
+					else
+						@cntArray.clear		
+					end	
+				end	
+				end
+				if((params[:filter].include? "13") || (params[:filter].include? "14") || (params[:filter].include? "15") || (params[:filter].include? "16") || (params[:filter].include? "17"))		
+					unless(@cntArray.blank?)	
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						
 					
 					if(params[:filter].include? "13")
@@ -2518,7 +2808,11 @@ require 'json'
 					end	
 					
 					unless(@limit.blank?)
+<<<<<<< HEAD
 						@ac.each do |item| 
+=======
+						@cntArray.each do |item| 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 											if((item['distance'].to_f  < @limit))
 												@ab.push(item)
 											end
@@ -2540,6 +2834,7 @@ require 'json'
 								end	
 							end
 			 unless(@ab.blank?)
+<<<<<<< HEAD
 				@ab.sort_by! {|e| -e["scoreJob"] }
 			end	
 			totJob				=			@ab.length
@@ -2547,6 +2842,12 @@ require 'json'
 			render :json => {
 								:listJobs => @ab ,
 								:totJob	  => totJob	
+=======
+						@ab.sort_by! {|e| -e["scoreJob"] }
+					end					
+			render :json => {
+								:listJobs => @ab
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							}
 			end				
 		end	

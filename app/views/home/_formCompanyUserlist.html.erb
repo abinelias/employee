@@ -1,26 +1,44 @@
 <style>
 	table.serifa{font-family:Arial,Helvetica,sans-serif;}
 </style>
+<<<<<<< HEAD
 <div >
+=======
+<div class = "textfont">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	<table align ="center">
 		<% unless(@companyDetails.nil?)%>
 			<% @companyDetails.each do |value| %>
 				<tr>
+<<<<<<< HEAD
 					<td>Company Name: </td><td><%= link_to value['companyName']  , url_for({:controller => 'home', :action => 'editCompany' , :companyID => value['companyID'].to_s}) %> <td>
+=======
+					<td>Company Name: </td><td><%= link_to value['companyName']  , url_for({:controller => 'home', :action => 'editCompany' , :companyID => value['companyID'].to_s}), {:style=>'color:#FF0000;'} %> <td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				</tr>
 				<tr>
 					<td>Location:</td><td> <%= value['companyCity'] %>, <%= value['companyState'] %> <td>
 				</tr>
 			<% end %>	
+<<<<<<< HEAD
 		 <% end %>	
 		 <% unless(@cntArray.nil?)%>
 			<tr>
 				
+=======
+		 <% end %>
+		 <% unless(@cntArray.nil?)%>
+			<tr>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					<table cellpadding="0" cellspacing="0" border="0" width="100%">
 						<tr>
 							<td align="center" valign="middle">
 								<table border = 0 cellpadding="5">
+<<<<<<< HEAD
 									<tr align="center" valign="middle"  bgcolor="#edf2f4">							
+=======
+									<tr align="center" valign="middle"  bgcolor="#4D94FF">							
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 										<th>Name</th>	 
 										<th>Email</th>
 										<th>Permission</th>																			
@@ -29,18 +47,35 @@
 									</tr>
 									 <% @cntArray.each do |value| %>
 										<% @count = @count +1 %>
+<<<<<<< HEAD
 										<tr>
 											<td><%= link_to value['firstname']  , url_for({:controller => 'home', :action => 'editUser' , :prospect => value['employerid'].to_s }) %></td>
 											<td><%= value['email'].to_s %></td>
 											<td><%= value['permission'].to_s %></td>
 											<td><%= value['role'].to_s %></td>
 											<td><%= link_to 'Edit'  , url_for({:controller => 'home', :action => 'editUser' , :prospect => value['employerid'].to_s }) %> </td>	   
+=======
+										<tr <% if (@count%2 == 0) %>
+												   bgcolor="#E4EFFF"
+											 <% else %>   	   	
+													bgcolor="#A6CAFF"
+											 <% end %>		>
+											<td><%= link_to value['firstname']  , url_for({:controller => 'home', :action => 'editUser' , :prospect => value['employerid'].to_s }), {:style=>'color:#FF0000;'} %></td>
+											<td><%= value['email'].to_s %></td>
+											<td><%= value['permission'].to_s %></td>
+											<td><%= value['role'].to_s %></td>
+											<td><%= link_to "Delete"%> | <%= link_to 'Edit'  , url_for({:controller => 'home', :action => 'editUser' , :prospect => value['employerid'].to_s }), {:style=>'color:#FF0000;'} %> </td>	   
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 										</tr>
 									<% end %>
 									<tr>
 										<td>
 											<%= form_tag  %>	
+<<<<<<< HEAD
 											<input type="submit" value="Add user" name="add" id="add" >
+=======
+											<input type="submit" value="Add user" name="add" id="add" class="buttonStyle">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 										</td>
 									</tr>
 								</table>

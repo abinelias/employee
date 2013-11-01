@@ -11,10 +11,23 @@
 	.drops { width:250px; }
 </style>
 
+<<<<<<< HEAD
 <script>
 	$(document).ready(function(){
 	    $("#tabl").hide();
 	    $('#tabl').append($('<table  border =0 cellpadding="5"><tr  bgcolor="#edf2f4"><td width = 41%>Skill</td><td>Proficency</td><td>Importance</td> <td>Required</td></tr>'));
+=======
+<style>
+	table.serifa{font-family:Arial,Helvetica,sans-serif;}
+</style>
+
+
+
+<script>
+	$(document).ready(function(){
+	    $("#tabl").hide();
+	    $('#tabl').append($('<table  border =0 cellpadding="5"><tr  bgcolor="#4D94FF"><td width = 41%>Skill</td><td>Proficency</td><td>Importance</td> <td>Required</td></tr>'));
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	});	
 </script>	
 
@@ -84,7 +97,11 @@
 					  {
 							skillname	=	data.skillname
 							skillid		=	data.skillid
+<<<<<<< HEAD
 							$('#skill').append($('<div class="'+skillid+'"><tr><td><input type ="text" size="8%" value ="'+skillname+'" disabled></td><td><input type ="text" value ="" size="4%" id="rank_'+val+'" onblur="validateRank(\''+val+'\')" ></td><td><input type ="text" value ="" size="5%" id="prior_'+val+'" onblur="validatePrior(\''+val+'\')"></td><td><select id="drp_'+val+'" onchange="validateDesOrPri(\''+val+'\')" ><option value="1">YES</option><option value="0">NO</option></select></td></tr></div>'));
+=======
+							$('#skill').append($('<div class="'+skillid+'"><tr><td><input type ="text" size="10%" value ="'+skillname+'" disabled></td><td><input type ="text" value ="" size="8%" id="rank_'+val+'" onblur="validateRank(\''+val+'\')" ></td><td><input type ="text" value ="" size="8%" id="prior_'+val+'" onblur="validatePrior(\''+val+'\')"></td><td><select id="drp_'+val+'" onchange="validateDesOrPri(\''+val+'\')" ><option value="1">YES</option><option value="0">NO</option></select></td></tr></div>'));
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							
 					  } 
 				  });
@@ -240,9 +257,15 @@
 </script>
 
 <div class = "textfont">
+<<<<<<< HEAD
 	<table align ="center">
 		 <tr>
 			<td>Title</td><td><input type="text" style="height:25px;font-size:10pt;" size=80" value="<%= @jobName %>" name="title" id="title"> </td>
+=======
+	<table align ="center" class ="serifa" >
+		 <tr>
+			<td class="serifa">Title</td><td><input type="text" style="height:25px;font-size:10pt;" size=80" value="<%= @jobName %>" name="title" id="title"> </td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		 </tr>
 	</table>
 	
@@ -285,7 +308,11 @@
 						<div id ="tabl"></div>
 						<div id ="skill"></div>
 						<div id ="btn">
+<<<<<<< HEAD
 							<input type="submit" name="add" value="Submit"  id="add">
+=======
+							<input type="submit" name="add" value="Submit" class="buttonStyle " id="add" onclick ="return validateForm()">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						</div>
 					</div>
 				</td>

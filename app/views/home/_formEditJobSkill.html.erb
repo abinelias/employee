@@ -30,7 +30,11 @@
 		{
 			$.ajax({ 
 				  type: 'GET', 
+<<<<<<< HEAD
 				  url: '/jobseeker/popSecond', 
+=======
+				  url: '/employee/popSecond', 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				  data: {'id' : $('.drop').val()},
 				  success: function(data) 
 				  {
@@ -52,7 +56,11 @@
 		{
 			$.ajax({ 
 				  type: 'GET', 
+<<<<<<< HEAD
 				  url: '/jobseeker/PopThird', 
+=======
+				  url: '/employee/PopThird', 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				  data: {'id' : $('.drops').val()},
 				  success: function(data) 
 				  {
@@ -88,9 +96,15 @@
 					  {
 							skillname	=	data.skillname
 							skillid		=	data.skillid
+<<<<<<< HEAD
 							$('#skillName').append($('<div class="'+skillid+'"><input type ="text" size="8%" value ="'+skillname+'" disabled></div>'));
 							$('#skillProf').append($('<div class="'+skillid+'"><input type ="text" value ="" size="5%" id="rank_'+val+'" onblur="validateRank(\''+val+'\')" ></div>'));
 							$('#skillImp').append($('<div class="'+skillid+'"><input type ="text" value ="" size="5%" id="prior_'+val+'" onblur="validatePrior(\''+val+'\')"></div>'));
+=======
+							$('#skillName').append($('<div class="'+skillid+'"><input type ="text" value ="'+skillname+'" disabled></div>'));
+							$('#skillProf').append($('<div class="'+skillid+'"><input type ="text" value ="" size="8%" id="rank_'+val+'" onblur="validateRank(\''+val+'\')" ></div>'));
+							$('#skillImp').append($('<div class="'+skillid+'"><input type ="text" value ="" size="9%" id="prior_'+val+'" onblur="validatePrior(\''+val+'\')"></div>'));
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							$('#skillReq').append($('<div class="'+skillid+'"><select id="drp_'+val+'" onchange="validateDesOrPri(\''+val+'\')" ><option value="1">YES</option><option value="0">NO</option></select></div>'));
 							
 					  } 
@@ -254,7 +268,11 @@
 		 </tr>
 	</table>
 	<div class="outer_container">
+<<<<<<< HEAD
 		<div class = "textfont" style="width:53%;float:left;">
+=======
+		<div class = "textfont" style="width:60%;float:left;">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			<div style="width:100%;">
 				<table  width="500px">
 				
@@ -271,7 +289,11 @@
 					</tr>
 					<tr>
 						<td width="200px">
+<<<<<<< HEAD
 							please select your Specialty
+=======
+							please select your Speciality
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						</td>
 						<td width="300px">
 						
@@ -286,9 +308,15 @@
 			</div>		
 		</div>
 		
+<<<<<<< HEAD
 		<div  STYLE="margin-left: 53%">
 			<table>
 				<tr  bgcolor="#edf2f4"><td width = 41%>Skill</td><td>Proficency</td><td>Importance</td> <td>Required</td></tr>
+=======
+		<div  STYLE="margin-left: 60%">
+			<table>
+				<tr  bgcolor="#4D94FF"><td width = 41%>Skill</td><td>Proficency</td><td>Importance</td> <td>Required</td></tr>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 				<% unless(@cnt_ary.nil?)%>
 					<% @cnt_ary.each do |value| %>
 						<tr>

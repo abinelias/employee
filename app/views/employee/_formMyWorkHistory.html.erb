@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <% unless(@cntArray.nil?)%>
 	<table>
@@ -33,3 +34,49 @@
 	</table>
 <% end %>	
 				
+=======
+<div class = "textfont">
+	<table width="100%">
+		<tr>
+			<td>
+				<table align = "left">	
+					<% unless(@cntArray.nil?)%>
+						<table>
+							<tr>	
+								<td>
+									<div STYLE="margin-left: 10%">
+										<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+											<tr bgcolor="#4D94FF">
+												<td width ="200">Company</td>
+												<td width ="200">Position</td>
+												<td width ="200">From</td>
+												<td width ="200">Until</td>
+												<td width ="200">Actions</td>
+											</tr>
+											<% @cntArray.each do |value| %>	
+												<% @count = @count + 1 %>
+												<tr <% if (@count%2 == 0) %>
+																	   bgcolor="#E4EFFF"
+																 <% else %>   	   	
+																		bgcolor="#A6CAFF"
+																 <% end %>	>
+													<td width ="100"><%= value['company'].to_s %></td>
+													<td width ="100"><%= value['title'].to_s %></td>
+													<td width ="100"><%= value['fromdate'].to_s %></td>
+													<td width ="100"><%= value['tilldate'].to_s %></td>
+													<td><%= link_to "Delete"%> | <%= link_to 'Edit' , url_for({:controller => 'employee', :action => 'editWorkHistory'  , :workID => value['workid'].to_s}) ,  :onclick=>"window.open(this.href,'editWorkHistory', 'height=350,width=450,top=250,left=600' ); return false;" %> | <%= link_to "Add Skill"  , url_for({:controller => 'employee', :action => 'addMyskillsPortfolio'})%> </td>	   
+
+												</tr>
+											<% end %>
+										</table>
+									</div>
+								</td>
+							</tr>
+						</table>
+					<% end %>	
+				</table>	
+			</td>
+		</tr>
+	</table>
+</div>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318

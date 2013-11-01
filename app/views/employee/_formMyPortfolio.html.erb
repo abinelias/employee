@@ -1,6 +1,7 @@
 <div class = "textfont">
 	<% unless(@skillDetails.nil?)%>	
 		<table>
+<<<<<<< HEAD
 			<tr>
 				<td><p><div class = "textfont"><span style="width:80px;float:left;">Click on the</span><div style="width:50px;float:left;"><%= link_to "Add", {:controller => 'employee', :action => 'addMyskillsPortfolio'} %></div><span style="width:520px;float:left;"> button to add your skills</span></div></p></td>
 			</tr>
@@ -12,23 +13,50 @@
 								<td width ="200">Category</td>
 								<td width ="200">Speciality</td>
 								<td align ="center" width ="200" >Skills</td>
+=======
+			<tr>	
+				<td>
+					<div STYLE="margin-left: 10%">
+						<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+							<tr bgcolor="#4D94FF">
+								<td width ="200">Category</td>
+								<td width ="200">Speciality</td>
+								<td width ="200">Skills</td>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								<td align ="center" width ="200">Proficiency</td>
 								<td width ="200">Actions</td>
 							</tr>
 							<% @skillDetails.each do |value| %>	
 								<% @count = @count + 1 %>
+<<<<<<< HEAD
 								<tr>
 									<td width ="100"><%= value['categoryName'].to_s %></td>
 									<td width ="100"><%= value['specialityName'].to_s %></td>
 									<td width ="100" align ="left"><%= link_to value['skillName']  , url_for({:controller => 'employee', :action => 'skillvalidate' , :skillID => value['skillID'].to_s}) , {:class => "textfont"} %></td>
 									<td align ="center" width ="100"><%= value['skillProficency'].to_s %></td>
 									<td><%= link_to 'Edit'  , url_for({:controller => 'employee', :action => 'myskillsPortfolio'  }) %> </td>	   
+=======
+								<tr <% if (@count%2 == 0) %>
+													   bgcolor="#E4EFFF"
+												 <% else %>   	   	
+														bgcolor="#A6CAFF"
+												 <% end %>	>
+									<td width ="100"><%= value['categoryName'].to_s %></td>
+									<td width ="100"><%= value['specialityName'].to_s %></td>
+									<td width ="100"><%= link_to value['skillName']  , url_for({:controller => 'employee', :action => 'skillvalidate' , :skillID => value['skillID'].to_s}), {:style=>'color:#FF0000;'} %></td>
+									<td align ="center" width ="100"><%= value['skillProficency'].to_s %></td>
+									<td><%= link_to "Delete"%> | <%= link_to 'Edit'  , url_for({:controller => 'employee', :action => 'myskillsPortfolio'  }), {:style=>'color:#FF0000;'} %> </td>	   
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 								</tr>
 							<% end %>
 							<tr>
 								<td>
+<<<<<<< HEAD
 									<%= link_to "Add Skill"  , url_for({:controller => 'employee', :action => 'addMyskillsPortfolio'}), {:class => "link"} %>
+=======
+									<%= link_to "Add Skill"  , url_for({:controller => 'employee', :action => 'addMyskillsPortfolio'}), {:class => "buttonStyle"} %>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								</td>
 							</tr>	
 						</table>

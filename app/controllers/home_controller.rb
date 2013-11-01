@@ -102,6 +102,7 @@ class HomeController < ApplicationController
 		end
 	end
 	
+<<<<<<< HEAD
 	def demo
 				postingcompany									=		session[:postingcompany]
 		@hiringAuthority               					= 		Hash.new
@@ -129,6 +130,8 @@ class HomeController < ApplicationController
 					 end
 	end
 	
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	def jobPostingNew
 		postingcompany									=		session[:postingcompany]
 		@hiringAuthority               					= 		Hash.new
@@ -173,6 +176,7 @@ class HomeController < ApplicationController
 				 
 			@dataARY.push("jobName" => data.description, "details" => data.details, "numOfPositions" => data.numpositions, "openDate" => data.dateopen, "close" => data.dateclose, "salary" => data.salary, "address" => data.address, "city" => data.city, "state" => data.state, "zip" => data.zip)
 			@userRole									=		data.jobid
+<<<<<<< HEAD
 		end	
 		
 		unless(params[:add].nil?)
@@ -212,6 +216,9 @@ class HomeController < ApplicationController
 			end	
 		end		
 				
+=======
+		end			
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		@skill["Select Category"]						=		""
 		@subskill["Select Speciality"]					=		""		
 		Skill.where(:parentid => "0").all.each do |value|
@@ -272,7 +279,10 @@ class HomeController < ApplicationController
 			zip		 			  						= 		params[:zip]
 			jobCategory			  						= 		params[:jobCategory]
 			tagAry  									=  		params[:sel_tagstores]
+<<<<<<< HEAD
 			jobType  									=  		params[:type]
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			
 			hrmanager			  						= 		params[:hrManager]
 			manager				  						= 		params[:manager]
@@ -288,7 +298,11 @@ class HomeController < ApplicationController
 				if(hiring.save == true)
 					hir 								= 		Hiringauthority.sort(:created_at.desc).all
 					hiringid							=		hir[0].id
+<<<<<<< HEAD
 					employ  							= 		Jobposting.new(:jobid => jobCategory , :jobtype => jobType , :details => details , :postingcompany => postingcompany , :hiringauthority => hiringid, :description => title, :dateopen => opdate, :dateclose => cldate, :numpositions => openings, :salary => salary, :address => address, :city => city, :state => state, :zip => zip, :reviewer => reviewer, :manager => manager, :hrmanager => hrmanager)
+=======
+					employ  							= 		Jobposting.new(:jobid => jobCategory , :details => details , :postingcompany => postingcompany , :hiringauthority => hiringid, :description => title, :dateopen => opdate, :dateclose => cldate, :numpositions => openings, :salary => salary, :address => address, :city => city, :state => state, :zip => zip, :reviewer => reviewer, :manager => manager, :hrmanager => hrmanager)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 					if(employ.save == true)
 						@msg     						= 		"successfully inserted"
 						redirect_to :action 			=>		"jobPostingNew" , :jobID => employ.id
@@ -355,7 +369,10 @@ class HomeController < ApplicationController
 			city	 			  					= 		params[:city]
 			state	 			  					= 		params[:state]
 			zip		 			  					= 		params[:zip]
+<<<<<<< HEAD
 			jobType  								=  		params[:type]
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 			
 			hrmanager			  					= 		params[:hrManager]
 			manager				  					= 		params[:manager]
@@ -386,7 +403,10 @@ class HomeController < ApplicationController
 						employ.manager				= 		manager
 						employ.reviewer				= 		reviewer
 						employ.hiringauthority		= 		hiringid
+<<<<<<< HEAD
 						employ.jobtype 				= 		jobType
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 						result  					= 		employ.save
 						if(result == true)
 							@msg     				=		"successfully inserted"
@@ -816,10 +836,13 @@ class HomeController < ApplicationController
 		Companytype.sort(:name).all.each do |value|
 											@compType[value.name] 				= 		value.id
 										end
+<<<<<<< HEAD
 										
 		unless(params[:cancel].nil?)
 			redirect_to :action 					=>		"employerLogin"
 		end								
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	
 		unless(params[:add].nil?)
 			company	 			  					= 		params[:company]
@@ -1033,6 +1056,7 @@ class HomeController < ApplicationController
 									   end	
 									   if(stat == 1)
 											nextStep	=	"Define Prerequisites"
+<<<<<<< HEAD
 											action		=	"edit"
 											status		=	"Prerequisites Definition"
 										elsif(stat == 2)
@@ -1047,6 +1071,26 @@ class HomeController < ApplicationController
 											nextStep	=	"Review Applicants"
 											action		=	"availableCandidate"	
 											status		=	"Review Applicants"	
+=======
+											action		=	"jobPrerequisites"
+											status		=	"in Prerequisites Definition"
+										elsif(stat == 2)
+											nextStep	=	"Define Skills"
+											action		=	"jobSkills"	
+											status		=	"in Skills Definition"
+										elsif(stat == 3)
+											nextStep	=	"Rank The Skills"
+											action		=	"rankJob"	
+											status		=	"in in Ranking Job"
+										elsif(stat == 4)
+											nextStep	=	"Post Position"
+											action		=	"popupPostPosition"	
+											status		=	"in Post Position"	
+										else
+											nextStep	=	"Review Applicants"
+											action		=	"availableCandidate"	
+											status		=	"in Review Applicants"	
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 										end	
 									  hire_data			=		Hiringauthority.where(:id => hire)
 									  hire_data.each do |valu|
@@ -1162,6 +1206,7 @@ class HomeController < ApplicationController
 			unless(reqSkills.blank?)
 				reqSkills.each do |value|
 									skillQuery						=		Skillsrating.find_by_jobID(params[:jobID].to_s)
+<<<<<<< HEAD
 									if(skillQuery)
 										skillRating						=		skillQuery.skillrating
 										skillRating.each do |val| 
@@ -1178,6 +1223,19 @@ class HomeController < ApplicationController
 										name							=		Skill.find_by_id(value.to_s).name	
 										@cnt_ary.push("skillName" => name, "required" => "YES")
 									end	
+=======
+									skillRating						=		skillQuery.skillrating
+									skillRating.each do |val| 
+														if(val.skillid.to_s == value.to_s)
+															@proficency	= val.priority 
+															@Impotance	= val.ranking
+														end	
+													end		
+									name							=		Skill.find_by_id(value.to_s).name	
+									@cnt_ary.push("skillName" => name, "required" => "YES", "skillID" => value, "skillImp" => @proficency , "skillProf" => @Impotance)	
+									@proficency						= 		nil 
+									@Impotance						= 		nil
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 							   end	
 			end				   
 			
@@ -1390,7 +1448,11 @@ class HomeController < ApplicationController
 													end						  
 												end
 									name				=		Prospect.find_by_id(val)			
+<<<<<<< HEAD
 									@cnt_ary.push("candidateName" => 'Candidate'  + ' ' + @candidateCnt.to_s, "appliedFor" => @count, "candidateID" => val)
+=======
+									@cnt_ary.push("candidateName" => 'Candidate'  + @candidateCnt.to_s, "appliedFor" => @count, "candidateID" => val)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 									@count				=		0
 									@candidateCnt		=		@candidateCnt + 1	
 								end	
@@ -1493,7 +1555,11 @@ class HomeController < ApplicationController
 												@totalEmployeeScore	=	@totalEmployeeScore  + (value['prof'].to_i * value['employerImp'].to_i)
 										   end	
 								name					=		Prospect.find_by_id(val)					
+<<<<<<< HEAD
 								@cnt_ary.push("candidateName" => 'Candidate' + ' ' +  @candidateCnt.to_s, "appliedFor" => @count, "candidateID" => val, "check" => 0 , "jobSkillScore" => @totalSkillScore  , "employeeSkillScore" => @totalEmployeeScore)
+=======
+								@cnt_ary.push("candidateName" => 'Candidate' + @candidateCnt.to_s, "appliedFor" => @count, "candidateID" => val, "check" => 0 , "jobSkillScore" => @totalSkillScore  , "employeeSkillScore" => @totalEmployeeScore)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								
 								@count						=				0
 								@totalSkillScore			=				0
@@ -1608,7 +1674,11 @@ class HomeController < ApplicationController
 												@totalEmployeeScore	=	@totalEmployeeScore  + (value['prof'].to_i * value['employerImp'].to_i)
 										   end	
 								name					=		Prospect.find_by_id(val)					
+<<<<<<< HEAD
 								@cnt_ary.push("candidateName" => 'Candidate' + ' ' +  @candidateCnt.to_s, "appliedFor" => @count, "candidateID" => val, "check" => 1 , "jobSkillScore" => @totalSkillScore  , "employeeSkillScore" => @totalEmployeeScore)
+=======
+								@cnt_ary.push("candidateName" => 'Candidate' + @candidateCnt.to_s, "appliedFor" => @count, "candidateID" => val, "check" => 1 , "jobSkillScore" => @totalSkillScore  , "employeeSkillScore" => @totalEmployeeScore)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 								
 								@count						=				0
 								@totalSkillScore			=				0
@@ -1685,6 +1755,7 @@ class HomeController < ApplicationController
 						categoryName		=		categoryInfo.name
 						
 						info				=		skill.value	
+<<<<<<< HEAD
 						unless(info.blank?)
 								info.each do |vale|
 												unless(vale.proficency.nil?)
@@ -1700,6 +1771,16 @@ class HomeController < ApplicationController
 							  
 					end
 			end	
+=======
+						info.each do |vale|
+										prof			=		vale.proficency
+										@skillDetails.push("categoryName" => categoryName, "specialityName" => specialityName, "skillName" => skillName , "skillProficency" => prof)
+								  end	
+							  
+					end
+			end	
+							 
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		end
 	end
 	
@@ -1742,7 +1823,11 @@ class HomeController < ApplicationController
 				@countDesSkill										=		desSkills.size
 				@candidateAry.each do |val|
 										name						=		Prospect.find_by_id(val)	
+<<<<<<< HEAD
 										@candidateData.push("candidateFirstName" => 'Candidate' + ' ' + @candidateCnt.to_s, "candidateID" => val)
+=======
+										@candidateData.push("candidateFirstName" => 'Candidate' + @candidateCnt.to_s, "candidateID" => val)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 										@candidateCnt				=		@candidateCnt + 1
 										userid 						= 		Portfolio.find_by_ownerid(val.to_s).id
 										unless(userid.nil?)
@@ -1948,11 +2033,14 @@ class HomeController < ApplicationController
 		session[:postingcompany]=		nil
 		session[:userid]		=		nil
 		
+<<<<<<< HEAD
 		session[:username]		=		nil
 		session[:userid]		=		nil
 		session[:name]			=		nil
 		session[:lastname]		=		nil
 		
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		redirect_to :action 	=>		"homePage"
 	end
 	
@@ -2185,6 +2273,7 @@ class HomeController < ApplicationController
 	     end	
 	end
 	
+<<<<<<< HEAD
 	def csv_method
 		unless(params[:add].blank?)
 			require 'csv'
@@ -2194,6 +2283,8 @@ class HomeController < ApplicationController
 		end	
 	end
 	
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	private
 	def require_login
 		unless logged_in?

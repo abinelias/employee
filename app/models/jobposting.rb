@@ -13,7 +13,10 @@ class Jobposting
 	key  :reviewer, String
 	key  :jobid, String
 	key  :dateopen, String 
+<<<<<<< HEAD
 	key  :jobtype, String
+=======
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	key  :dateclose, String 
 	key  :numpositions, Integer 
 	key  :salary, Integer 

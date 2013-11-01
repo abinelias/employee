@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -56,3 +57,28 @@ $(document).ready(function(){
 
 </body>
 </html>
+=======
+<div id="container" style="width:100%">
+	<div id="header" style="height:50px;margin-left: 3%;">
+		<%= link_to image_tag('/images/logo.jpg') , url_for({:controller => 'home', :action => 'homePage'}) %> 
+	</div>
+		<table width="70%" border="0" cellpadding="0" cellspacing="0" align ="center" >
+
+			<tr>
+				&nbsp;
+			</tr>
+			<tr>
+				&nbsp;
+			</tr>
+		
+			<tr>
+				<td>
+					<%= form_tag(:action => "popupApplyJob") do  %>	
+						<%= render 'formPopupApplyJob' %>
+					<%end%>
+				</td>
+			</tr>
+		</table>
+	</div>	
+</div>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318

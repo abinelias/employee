@@ -1,5 +1,10 @@
 <script>
 
+<<<<<<< HEAD
+=======
+
+		
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	function validateForm()
 	{
 
@@ -78,9 +83,14 @@
 	
 </script>
 
+<<<<<<< HEAD
 
 
 <div class = "textfont">
+=======
+<div class = "textfont">
+	<input type="hidden" value="<%= @jobID %>"  name="prospect">
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 	<% unless(@dataARY.nil?)%>
 		<% @dataARY.each do |value| %>
 			<table align = "center">
@@ -134,11 +144,19 @@
 
 				<tr>
 					<td colspan="2">
+<<<<<<< HEAD
 						<input type="submit" name="update" value="Update"  id="add" onclick ="return validateForm()">
 						<input type="submit" name="cancel" value="Cancel"  id="cancel">
 					</td>
 				</tr>
 			</table>
+=======
+						<input type="submit" name="update" value="Update" class="buttonStyle " id="add" onclick ="return validateForm()">
+						<input type="submit" name="cancel" value="Cancel" class="buttonStyle " id="cancel">
+					</td>
+				</tr>
+			<table>
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 		<% end %>
 	<% end %>		
 </div>

@@ -28,6 +28,10 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+<<<<<<< HEAD
+=======
+    addressable (2.3.5)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
     arel (3.0.2)
     bson (1.8.6)
     bson_ext (1.8.6)
@@ -40,9 +44,26 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+<<<<<<< HEAD
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+=======
+    daemons (1.1.9)
+    erubis (2.7.0)
+    eventmachine (1.0.3-x86-mingw32)
+    excon (0.25.3)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    heroku (3.0.0)
+      heroku-api (~> 0.3.7)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.15)
+      excon (~> 0.25.1)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -50,6 +71,11 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+<<<<<<< HEAD
+=======
+    launchy (2.3.0)
+      addressable (~> 2.3)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -61,6 +87,10 @@ GEM
       activesupport (~> 3.0)
       plucky (~> 0.5.2)
     multi_json (1.7.6)
+<<<<<<< HEAD
+=======
+    netrc (0.7.7)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
     plucky (0.5.2)
       mongo (~> 1.5)
     polyglot (0.3.3)
@@ -90,6 +120,12 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     remotipart (1.2.1)
+<<<<<<< HEAD
+=======
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rubyzip (1.0.0)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -100,6 +136,13 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+<<<<<<< HEAD
+=======
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
     thor (0.18.1)
     tilt (1.4.1)
     treetop (1.4.14)
@@ -117,10 +160,18 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   coffee-rails (~> 3.2.1)
+<<<<<<< HEAD
+=======
+  heroku
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
   jquery-rails
   mongo_mapper
   rails (= 3.2.13)
   remotipart (~> 1.2)
   sass-rails (~> 3.2.3)
+<<<<<<< HEAD
+=======
+  thin
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0.0)

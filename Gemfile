@@ -9,6 +9,11 @@ gem 'mongo_mapper'
 gem 'bson_ext'
 gem 'remotipart', '~> 1.2'
 gem 'will_paginate', '~> 3.0.0'
+<<<<<<< HEAD
+=======
+gem "heroku"
+gem 'thin'
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +29,13 @@ end
 
 gem 'jquery-rails'
 
+<<<<<<< HEAD
+=======
+group :production do
+  gem 'thin'
+end
+
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -31,7 +43,12 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
+<<<<<<< HEAD
 # gem 'unicorn'
+=======
+ gem 'kgio'
+ gem 'unicorn'
+>>>>>>> 06b4c5f4f2abceed39efb0ef83e9f861d0869318
 
 # Deploy with Capistrano
 # gem 'capistrano'
