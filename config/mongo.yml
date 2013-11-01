@@ -1,6 +1,6 @@
 defaults: &defaults
-  host: 127.0.0.1
-  port: 27017
+   host: ds049858.mongolab.com
+   port: 49858
 
 development:
   <<: *defaults
@@ -12,7 +12,9 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  database: employee
-  username: <%= ENV['MONGO_USERNAME'] %>
-  password: <%= ENV['MONGO_PASSWORD'] %>
+ 
+  host: ds049858.mongolab.com
+  port: 49858
+  database: employee_development
+  username: abin
+  password: password007

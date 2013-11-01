@@ -325,7 +325,7 @@ require 'json'
 		unless(params[:id].blank?)
 			skills	  								=  		params[:id].to_s
 			unless(skills.nil?)
-				@text	=	Skill.where(:parentid => skills).all
+				@text	=	Skill.where(:parentid => skills).sort(:name).all
 			end	
 			render :json => @text.map{|c| [c.id, c.name]}
         end	
